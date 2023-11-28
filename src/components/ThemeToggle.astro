@@ -1,0 +1,112 @@
+<input id="color-mode" type="checkbox" name="color-mode" />
+<label for="color-mode">
+  <span class="dark-mode-hide">Dark Mode</span>
+  <span class="light-mode-hide">Light Mode</span>
+</label>
+
+<style is:global>
+  :root {
+    --bg: var(--clr-white);
+    --text: var(--clr-black);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--clr-black);
+      --text: var(--clr-white);
+    }
+  }
+
+  #color-mode,
+  label {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 100;
+  }
+
+  #color-mode:checked ~ * {
+    --bg: var(--clr-black);
+    --text: var(--clr-white);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #color-mode:checked ~ * {
+      --bg: var(--clr-white);
+      --text: var(--clr-black);
+    }
+  }
+
+  .light-mode-hide {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dark-mode-hide {
+      display: none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .light-mode-hide {
+      display: initial;
+    }
+  }
+
+  label {
+    cursor: pointer;
+    position: fixed;
+    background: var(--text);
+    color: var(--bg);
+    padding: 1rem;
+    bottom: 1rem;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow:
+      0 2px var(--bg),
+      0 4px var(--text);
+    user-select: none;
+    z-index: 100;
+  }
+
+  input[type="checkbox"]:focus + label {
+    outline: 2px dashed red;
+    outline-offset: 4px;
+  }
+
+  label:active {
+    transform: translateY(1px);
+    box-shadow:
+      0 1px var(--bg),
+      0 3px var(--text);
+  }
+
+  label:after {
+    content: "✔\FE0E";
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-left: 1rem;
+    border: solid 2px var(--bg);
+    text-align: center;
+    border-radius: 4px;
+    color: transparent;
+  }
+
+  #color-mode:checked + label:after {
+    color: var(--bg);
+  }
+
+  input[type="checkbox"] {
+    opacity: 0.00001;
+    position: absolute;
+  }
+
+  .color-scheme-wrapper {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    transition: all var(--easing-nav-out);
+  }
+</style>
