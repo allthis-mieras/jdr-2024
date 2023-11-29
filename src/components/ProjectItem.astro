@@ -1,12 +1,27 @@
 ---
-const { title, client, description } = Astro.props;
+import { getEntry } from "astro:content";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const entry = await getEntry("projects", slug);
+const { Content } = await entry.render();
+
+const images: Array = entry?.data.imgs;
 ---
 
 <section class="project w-full">
   <header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4 bg-red-400">
-    <h3>{title}</h3>
-    <h2>{client}</h2>
+    <h3>{entry.data.type}</h3>
+    <h2>{entry.data.title}</h2>
   </header>
+
+  {images.map((i) => <img src={i} alt="" />)}
+
+  <!--
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide" data-slide-type="img">
@@ -39,12 +54,11 @@ const { title, client, description } = Astro.props;
       </a>
     </p>
   </div>
+   -->
 </section>
-<div class="swiper-slide" data-slide-type="img">Slide 5</div>
-<div class="swiper-slide" data-slide-type="img">Slide 6</div>
 <div class="px-vw-8 grid grid-cols-2 gap-0 bg-red-400">
   <p class="col-start-2 py-vw-4">
-    {description}
+    <Content />
   </p>
 </div>
 
