@@ -8,22 +8,23 @@ const textLinks: { label: string; href: string }[] = [
 ];
 ---
 
-<nav class="outer w-full grid grid-cols-2 px-vw-8 fixed bg-red-500 z-50">
+<nav class="outer w-full grid grid-cols-2 px-vw-8 py-vw-4 fixed z-50">
   <!-- <div class="inner grid grid-cols-2"> -->
   <div class="brand">
-    <h1 class="text-2xl font-bold">
+    <h1 class="text-base font-bold">
       <a href="#content" class="js-anchor-link">Jeffrey de Roode</a>
     </h1>
   </div>
-  <div class="menu flex items-center justify-between pl-vw-8 bg-red-300">
-    <a class="js-anchor-link" href="#content">about</a>
-    <a class="js-anchor-link" href="#projects">work</a>
-    <a class="js-anchor-link" href="#contact">contact</a>
+  <div class="menu flex items-center justify-between pl-vw-8">
+    <a class="text-base js-anchor-link" href="#content">about</a>
+    <a class="text-base js-anchor-link" href="#projects">work</a>
+    <a class="text-base js-anchor-link" href="#contact">contact</a>
   </div>
 </nav>
 
 <style>
   nav {
-    /* mix-blend-mode: exclusion; */
+    mix-blend-mode: exclusion;
+    color: white;
   }
 </style>

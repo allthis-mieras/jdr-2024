@@ -88,6 +88,7 @@ html {
     font-weight: 700;
     line-height: 1.5rem;
     text-rendering: optimizeLegibility;
+     scroll-behavior: smooth;
 }
 main {
     background: var(--bg);
@@ -103,7 +104,7 @@ main {
     color: var( --clr-white);
     position: relative;
     min-height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 /* section {
     padding: 2rem 0;
@@ -280,3 +281,8 @@ section .media img {
 }
 
 
+@media (prefers-reduced-motion: reduce) {
+     :global(html) {
+       scroll-behavior: auto;
+     }
+    }
