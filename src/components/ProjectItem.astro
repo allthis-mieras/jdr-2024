@@ -3,7 +3,7 @@ const { title, client, description } = Astro.props;
 ---
 
 <section class="project w-full">
-  <header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4 bg-red-400">
+  <header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4">
     <h3>{title}</h3>
     <h2>{client}</h2>
   </header>
@@ -39,14 +39,12 @@ const { title, client, description } = Astro.props;
       </a>
     </p>
   </div>
+  <div class="px-vw-8 grid grid-cols-2 gap-0">
+    <p class="col-start-2 py-vw-4">
+      {description}
+    </p>
+  </div>
 </section>
-<div class="swiper-slide" data-slide-type="img">Slide 5</div>
-<div class="swiper-slide" data-slide-type="img">Slide 6</div>
-<div class="px-vw-8 grid grid-cols-2 gap-0 bg-red-400">
-  <p class="col-start-2 py-vw-4">
-    {description}
-  </p>
-</div>
 
 <style>
   img {
