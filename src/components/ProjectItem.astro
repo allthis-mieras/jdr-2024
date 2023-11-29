@@ -1,6 +1,5 @@
 ---
 import { getEntry } from "astro:content";
-import Carousel from "./Carousel.astro";
 
 interface Props {
   slug: string;
@@ -15,21 +14,16 @@ const images = entry.data.imgs;
 ---
 
 <section class="project w-full">
-  <header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4 bg-red-400">
+  <header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4">
     <h3>{entry.data.type}</h3>
-    <h2>{entry.data.title}</h2>
+    <h2 class="col-start-2 text-base pl-vw-8">{entry.data.title}</h2>
   </header>
 
   {images.map((i: any) => <img src={i} alt="" />)}
 
-  <div class="px-vw-8 grid grid-cols-2 gap-0 bg-red-400">
-    <p class="col-start-2 py-vw-4">
-      <Content />
-    </p>
-  </div>
   <div class="grid grid-cols-2 gap-0 px-vw-8 pb-vw-20">
     <p class="col-start-2 text-base pl-vw-8">
-      {description}
+      <Content />
     </p>
   </div>
 </section>

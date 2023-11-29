@@ -3,7 +3,7 @@ title: IFFR
 type: Documentary
 description: |
   International Film Festival Rotterdam
-publishDate: 2023-11-29 14:33:10
+publishDate: 2023-11-29 16:03:21
 imgs:
   - /assets/images/iffr-01.png
 img_alts:
