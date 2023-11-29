@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import Carousel from "./Carousel.astro";
 
 interface Props {
   slug: string;
@@ -10,7 +11,7 @@ const { slug } = Astro.props;
 const entry = await getEntry("projects", slug);
 const { Content } = await entry.render();
 
-const images: Array = entry?.data.imgs;
+const images = entry.data.imgs;
 ---
 
 <section class="project w-full">
@@ -19,48 +20,14 @@ const images: Array = entry?.data.imgs;
     <h2>{entry.data.title}</h2>
   </header>
 
-  {images.map((i) => <img src={i} alt="" />)}
+  {images.map((i: any) => <img src={i} alt="" />)}
 
-  <!--
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" data-slide-type="img">
-        <img src="assets/images/koala-01.jpg" alt="Description" />
-      </div>
-      <div class="swiper-slide" data-slide-type="img">
-        https://vimeo.com/267286797
-      </div>
-      <div class="swiper-slide" data-slide-type="img">Slide 3</div>
-      <div class="swiper-slide" data-slide-type="vdo">
-        <video
-          id="my-player"
-          class="video-js"
-          controls
-          preload="auto"
-          poster="//vjs.zencdn.net/v/oceans.png"
-          data-setup="{}"
-        >
-          <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4" /></video
-        >
-        <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm" />
-      </div>
-      <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg" />
-    </div>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank">
-        supports HTML5 video
-      </a>
+  <div class="px-vw-8 grid grid-cols-2 gap-0 bg-red-400">
+    <p class="col-start-2 py-vw-4">
+      <Content />
     </p>
   </div>
-   -->
 </section>
-<div class="px-vw-8 grid grid-cols-2 gap-0 bg-red-400">
-  <p class="col-start-2 py-vw-4">
-    <Content />
-  </p>
-</div>
 
 <style>
   img {
