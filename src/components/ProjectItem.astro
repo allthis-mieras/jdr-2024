@@ -35,9 +35,21 @@ const imageAlts = entry.data.img_alts;
       <Content />
     </p>
   </div>
+  <div class="grid grid-cols-2 gap-0 px-vw-8 pb-vw-20">
+    <p class="col-start-2 text-base pl-vw-8">
+      {description}
+    </p>
+  </div>
 </section>
 
 <style>
+  section {
+    position: relative;
+  }
+  header {
+    position: sticky;
+    top: 2rem;
+  }
   img {
     width: 100%;
     height: auto;

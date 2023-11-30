@@ -1,0 +1,18 @@
+---
+import Swiper from 'swiper';
+
+export function initSwiper() {
+  const swiper = new Swiper('.swiper', {
+    // Configure Swiper options here
+  });
+}
+
+export default function SwiperComponent() {
+  initSwiper();
+
+  return (
+    <section class="project w-full">
+      <!-- Rest of your component's HTML structure -->
+    </section>
+  );
+}
