@@ -9,9 +9,9 @@ imgs:
   - /assets/images/free-work-02.jpg
   - /assets/images/free-work-03.jpg
 img_alts:
-  - The Far Reach • 48 Hour Film Project
-  - The Far Reach • 48 Hour Film Project
-  - The Far Reach • 48 Hour Film Project
+  - The Far Reach • 48 Hour Film Project 1
+  - The Far Reach • 48 Hour Film Project 2
+  - The Far Reach • 48 Hour Film Project 3
 ---
 
 A big part of my time is spent on free work and passion projects. Over the years I’ve worked on short films, music videos, a graduation film and more.
