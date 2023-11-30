@@ -9,6 +9,6 @@ const projects = (await getCollection('projects'))
 import ProjectItem from './ProjectItem.astro';
 ---
 
-<div id="projects" class="w-full z-10 grid py-vw-8 gap-y-vw-10">
+<div id="projects" class="w-full z-10 grid py-vw-8 gap-y-vw-4">
 	{projects.map((p) => <ProjectItem slug={p.slug} />)}
 </div>
