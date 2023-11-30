@@ -1,32 +1,39 @@
 ---
-import Swiper from "swiper";
+interface Props {
+  slug: string;
+}
 
-const swiper = new Swiper(".swiper");
+const { slug } = Astro.props;
 ---
 
-<!-- Slider main container -->
-<div class="swiper">
-  <!-- Additional required wrapper -->
+<!-- Swiper -->
+<div class:list={["swiper", "swiper-" + slug]} data-slug={"swiper-" + slug}>
   <div class="swiper-wrapper">
-    <!-- Slides -->
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-     ...
+    <slot />
   </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
-
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
-  <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
 </div>
 <style>
   .swiper {
-    width: 600px;
-    height: 300px;
+    width: 100%;
+    height: auto;
   }
 </style>
+
+<script>
+  import Swiper from "swiper";
+  import type { SwiperOptions } from "swiper/types";
+  // Import Swiper styles
+  import "swiper/css";
+
+  const swipers = document.querySelectorAll(".swiper");
+
+  swipers.forEach((s: any, index: number) => {
+    console.log("." + s.dataset.slug);
+
+    const swiperParams: SwiperOptions = {
+      slidesPerView: 1,
+      spaceBetween: 50,
+    };
+    const swiper = new Swiper("." + s.dataset.slug, swiperParams);
+  });
+</script>

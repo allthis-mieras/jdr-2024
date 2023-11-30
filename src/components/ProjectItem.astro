@@ -12,15 +12,23 @@ const entry = await getEntry("projects", slug);
 const { Content } = await entry.render();
 
 const images = entry.data.imgs;
+const imageAlts = entry.data.img_alts;
 ---
 
-<section class="project w-full">
+<section class="project w-full grid">
   <header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4 bg-red-400">
     <h3>{entry.data.type}</h3>
     <h2>{entry.data.title}</h2>
   </header>
-
-  {images.map((i: any) => <img src={i} alt="" />)}
+  <Carousel slug={slug}>
+    {
+      images.map((image: string, index: number) => (
+        <div class="swiper-slide">
+          <img src={image} alt={imageAlts[index]} />
+        </div>
+      ))
+    }
+  </Carousel>
 
   <div class="px-vw-8 grid grid-cols-2 gap-0 bg-red-400">
     <p class="col-start-2 py-vw-4">
