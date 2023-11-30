@@ -14,7 +14,7 @@ const { Content } = await entry.render();
 const { imgs: images, img_alts: imageAlts, type, title } = entry.data;
 ---
 
-<section class="project w-full grid">
+<section class="grid w-full project">
 	<header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4">
 		<h3 class="text-sm">{entry.data.type}</h3>
 		<h2 class="col-start-2 text-sm pl-vw-8">{entry.data.title}</h2>
@@ -28,8 +28,8 @@ const { imgs: images, img_alts: imageAlts, type, title } = entry.data;
 			))
 		}
 	</Carousel>
-	<div class="grid grid-cols-2 gap-0 px-vw-8 pb-vw-20">
-		<div class="col-start-2 pl-vw-8 py-vw-4"><Content /></div>
+	<div class="grid gap-0 md:grid-cols-2 px-vw-8 pb-vw-20">
+		<div class="col-start-1 md:col-start-2 pl-vw-8 py-vw-4"><Content /></div>
 	</div>
 </section>
 

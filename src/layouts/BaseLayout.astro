@@ -3,52 +3,48 @@
 // https://docs.astro.build/en/core-concepts/layouts/
 
 // Component Imports
-import MainHead from "../components/MainHead.astro";
-import Nav from "../components/Nav.astro";
-import Footer from "../components/Footer.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
+	title?: string | undefined;
+	description?: string | undefined;
 }
 
 const { title, description } = Astro.props;
 ---
 
 <html lang="en">
-  <ThemeToggle />
-  <div class="color-scheme-wrapper">
-    <head>
-      <MainHead title={title} description={description} />
-    </head>
-    <body>
-      <Nav />
-      <main>
-        <slot />
-      </main>
+	<head>
+		<MainHead title={title} description={description} />
+	</head>
+	<body>
+		<div class="overflow-hidden color-scheme-wrapper">
+			<ThemeToggle />
+			<Nav />
+			<main>
+				<slot />
+			</main>
 
-      <Footer />
-    </body>
+			<Footer />
+		</div>
+		<script>
+			// Add “loaded” class once the document has completely loaded.
+			addEventListener('load', () => document.documentElement.classList.add('loaded'));
+		</script>
 
-    <script>
-      // Add “loaded” class once the document has completely loaded.
-      addEventListener("load", () =>
-        document.documentElement.classList.add("loaded")
-      );
-    </script>
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"
+		></script>
+		<!-- <script src="assets/scripts/preloader.js"></script> -->
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
-    <!-- <script src="assets/scripts/preloader.js"></script> -->
-
-    <!-- <script src="./assets/scripts/owl.carousel.min.js"></script> -->
-    <!-- <script src="./assets/scripts/scripts.js"></script> -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-2966635-71"></script>
-  </div>
+		<!-- <script src="./assets/scripts/owl.carousel.min.js"></script> -->
+		<!-- <script src="./assets/scripts/scripts.js"></script> -->
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2966635-71"></script>
+	</body>
 </html>
