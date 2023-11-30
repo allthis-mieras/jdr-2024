@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import Carousel from "../components/Carousel.astro";
 
 interface Props {
   slug: string;
@@ -42,6 +43,7 @@ const imageAlts = entry.data.img_alts;
   header {
     position: sticky;
     top: 2rem;
+    z-index: 10;
   }
   img {
     width: 100%;
