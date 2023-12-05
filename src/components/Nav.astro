@@ -1,30 +1,30 @@
 ---
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-  { label: "home", href: "/" },
-  { label: "work", href: "#content" },
-  { label: "about", href: "#projects" },
-  { label: "contact", href: "#contact" },
+	{ label: 'home', href: '/' },
+	{ label: 'work', href: '#content' },
+	{ label: 'about', href: '#projects' },
+	{ label: 'contact', href: '#contact' },
 ];
 ---
 
 <nav class="outer w-full grid grid-cols-2 px-vw-8 py-vw-4 fixed z-50">
-  <!-- <div class="inner grid grid-cols-2"> -->
-  <div class="brand">
-    <h1 class="text-base font-bold">
-      <a href="#content" class="js-anchor-link">Jeffrey de Roode</a>
-    </h1>
-  </div>
-  <div class="menu flex items-center justify-between pl-vw-8">
-    <a class="text-base js-anchor-link" href="#content">about</a>
-    <a class="text-base js-anchor-link" href="#projects">work</a>
-    <a class="text-base js-anchor-link" href="#contact">contact</a>
-  </div>
+	<!-- <div class="inner grid grid-cols-2"> -->
+	<div class="brand">
+		<h1 class="text-base font-bold">
+			<a href="#content" class="js-anchor-link">Jeffrey de Roode</a>
+		</h1>
+	</div>
+	<div class="menu flex items-center justify-between pl-vw-8">
+		<a class="text-base" href="#contact">contact</a>
+		<a class="text-base" href="#content">about</a>
+		<a class="text-base" href="#projects">work</a>
+	</div>
 </nav>
 
 <style>
-  nav {
-    mix-blend-mode: exclusion;
-    color: white;
-  }
+	nav {
+		mix-blend-mode: exclusion;
+		color: white;
+	}
 </style>
