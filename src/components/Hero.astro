@@ -3,7 +3,9 @@ const currentYear = new Date().getFullYear();
 ---
 
 <header class="gap-0 bg-white md:grid l:grid-cols-2">
-	<div class="sticky flex items-center justify-center visual md:h-screen sm:relative md:top-0">
+	<div
+		class="visual flex relative items-center justify-center visual sm:relative md:h-screen md:sticky md:top-0"
+	>
 		<!-- <div class="z-10 w-1/2 animation aspect-square"></div> -->
 		<img class="z-20 centered" src="../assets/images/logo-jdr-02-outline.svg" />
 		<img
@@ -38,7 +40,7 @@ const currentYear = new Date().getFullYear();
 		position: relative;
 		background: var(--bg);
 		color: var(--text);
-		min-height: 100vh;
+		/* min-height: 100vh; */
 		z-index: 10;
 		transition:
 			color var(--theme-transition),
