@@ -4,16 +4,11 @@ export default {
 	theme: {
 		extend: {},
 		fontWeight: {
-			extrabold: '800'
+			extrabold: '800',
 		},
 		lineHeight: {
-        'tight': '1',
-      }
+			tight: '1',
+		},
 	},
-	plugins: [
-    	require('tailwindcss-fluid-spacing'),
-		require('tailwindcss-fluid-type'),
-  ],
-}
-
-
+	plugins: [require('tailwindcss-fluid-spacing'), require('tailwindcss-fluid-type')],
+};

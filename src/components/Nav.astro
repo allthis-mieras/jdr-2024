@@ -1,32 +1,61 @@
 ---
 /** Main menu items - Verplaatsen naar const */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'about', href: '#content' },
-	{ label: 'work', href: '#projects' },
-	{ label: 'contact', href: '#contact' },
+	{ label: 'IG', href: '#content' },
+	{ label: 'E-mail', href: '#projects' },
+	{ label: 'Call', href: '#contact' },
 ];
 ---
 
-<nav class="outer w-full grid grid-cols-2 px-vw-8 py-vw-4 fixed z-50">
-	<div class="brand">
-		<h1 class="text-base font-bold">
+<nav class="outer w-full grid grid-cols-2 px-vw-2 py-vw-2 fixed z-50">
+	<div class="left">
+		<h1 class="text-xs font-bold">
 			<a href="#" class="js-anchor-link">Jeffrey de Roode</a>
 		</h1>
 	</div>
-	<div class="menu flex items-center justify-between pl-vw-8">
-		{
-			textLinks.map((l) => (
-				<a class="text-base" href={l.href}>
-					{l.label}
-				</a>
-			))
-		}
+	<div class="right flex items-center justify-between">
+		<div id="date" class="date text-base-fluid">Time</div>
+		<div class="menu pl-vw-8">
+			{
+				textLinks.map((l) => (
+					<a class="text-xs-fluid" href={l.href}>
+						{l.label}
+					</a>
+				))
+			}
+		</div>
 	</div>
 </nav>
 
 <style>
 	nav {
-		mix-blend-mode: exclusion;
-		color: white;
+		/* mix-blend-mode: exclusion; */
+		color: var(--text);
+		background: var(--bg);
+		font-family: var(--font-mono);
 	}
 </style>
+
+<script>
+	// Function to update the date and time
+	function updateDateTime() {
+		const dateElement = document.getElementById('date');
+		const currentDate = new Date();
+		const year = currentDate.getFullYear();
+		const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+		const day = String(currentDate.getDate()).padStart(2, '0');
+		const hours = String(currentDate.getHours()).padStart(2, '0');
+		const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+		const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+		const milliseconds = String(currentDate.getMilliseconds()).padStart(3, '0');
+		//const dateTime = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
+		const dateTime = `${hours}:${minutes}:${seconds}.${milliseconds}`;
+		dateElement.textContent = `${dateTime}`;
+
+		// Update the date and time every millisecond
+		setTimeout(updateDateTime, 1);
+	}
+
+	// Call the updateDateTime function to start updating the date and time
+	updateDateTime();
+</script>

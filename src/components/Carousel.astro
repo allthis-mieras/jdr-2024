@@ -1,39 +1,39 @@
 ---
 interface Props {
-  slug: string;
+	slug: string;
 }
 
 const { slug } = Astro.props;
 ---
 
 <!-- Swiper -->
-<div class:list={["swiper", "swiper-" + slug]} data-slug={"swiper-" + slug}>
-  <div class="swiper-wrapper">
-    <slot />
-  </div>
+<div class:list={['swiper', 'swiper-' + slug]} data-slug={'swiper-' + slug}>
+	<div class="swiper-wrapper">
+		<slot />
+	</div>
 </div>
 <style>
-  .swiper {
-    width: 100%;
-    height: auto;
-  }
+	.swiper {
+		width: 100%;
+		height: auto;
+	}
 </style>
 
 <script>
-  import Swiper from "swiper";
-  import type { SwiperOptions } from "swiper/types";
-  // Import Swiper styles
-  import "swiper/css";
+	import Swiper from 'swiper';
+	import type { SwiperOptions } from 'swiper/types';
+	// Import Swiper styles
+	import 'swiper/css';
 
-  const swipers = document.querySelectorAll(".swiper");
+	const swipers = document.querySelectorAll('.swiper');
 
-  swipers.forEach((s: any, index: number) => {
-    console.log("." + s.dataset.slug);
+	swipers.forEach((s: any, index: number) => {
+		console.log('.' + s.dataset.slug);
 
-    const swiperParams: SwiperOptions = {
-      slidesPerView: 1,
-      spaceBetween: 0,
-    };
-    const swiper = new Swiper("." + s.dataset.slug, swiperParams);
-  });
+		const swiperParams: SwiperOptions = {
+			slidesPerView: 1,
+			spaceBetween: 0,
+		};
+		const swiper = new Swiper('.' + s.dataset.slug, swiperParams);
+	});
 </script>

@@ -6,32 +6,16 @@ const currentYear = new Date().getFullYear();
 	<div
 		class="visual parallax flex relative items-center justify-center sm:relative md:h-screen md:sticky md:top-0"
 	>
-		<!-- <div class="z-10 w-1/2 animation aspect-square"></div> -->
-		<img class="layer1 z-20 centered" src="../assets/images/logo-jdr-02-outline.svg" />
 		<img
-			class="lasyer2 photo absolute top-0 z-10 object-cover w-full h-full mix-blend-multiply"
-			src="./assets/images/portret-jeff-halftone.png"
-			alt="Jeff"
+			class="absolute top-0 z-10 object-cover w-full h-full"
+			src="./assets/images/jdr-cover.jpg"
+			alt="Jeffrey de Roode"
 		/>
-		<video class="layer3 z-5" src="./assets/video/03-test.mp4" autoplay loop playsinline muted>
-		</video>
 	</div>
 
-	<div class="item intro p-vw-8 pt-vw-32 pb-vw-12">
-		<p class="text-3xl font-extrabold leading-tight tracking-tight tw">
-			I'm a dedicated film producer fueled by a passion for bringing compelling stories to the
-			screen. I thrive on diverse storytelling methods, welcoming every avenue that leads to
-			inspiration.
-		</p>
-		<p class="text-2xl mt-vw-8 tw">
-			In film production, I turn creative ideas into impactful narratives. From consultancy to
-			full-scale production, I specialize in documentaries, commercials, and films, overseeing
-			projects from concept to completion.
-		</p>
-		<p class="text-1xl mt-vw-8 tw">
-			Ready to bring your vision to life? Contact me for consultations, concepts, and collaboration.
-			Email me anytime to kickstart our creative journey!
-			<a href="https://www.instagram.com/jeffreyderoode/" rel="noopener" target="_blank">peek!</a>
+	<div class="intro p-vw-4 pt-vw-32 pb-vw-12 text-center tw">
+		<p class="text-7xl uppercase">
+			I work on films that broaden horizons and share new perspectives.
 		</p>
 	</div>
 </header>
@@ -39,50 +23,21 @@ const currentYear = new Date().getFullYear();
 <style>
 	header {
 		position: relative;
-		background: var(--bg);
-		color: var(--text);
-		/* min-height: 100vh; */
+		background: var(--clr-brand);
+		color: var(--clr-black);
 		z-index: 10;
-		transition:
-			color var(--theme-transition),
-			background var(--theme-transition);
 	}
 
 	.visual {
-		contain: paint;
 		background: var(--bg);
 		z-index: 10;
 		min-height: 50vh;
-		transition:
-			color var(--theme-transition),
-			background var(--theme-transition);
 	}
 
-	.animation {
-		background: url(./assets/images/logo-jdr-sprite.svg) no-repeat 0 0;
-		background-size: 100%;
-		animation: sprite 0.5s steps(4) infinite;
-		z-index: 20;
-	}
-
-	@keyframes sprite {
-		from {
-			background-position: 0 0;
-		}
-		to {
-			background-position: 0 100%;
-		}
-	}
-
-	video {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0.9;
-		z-index: 1;
+	.intro {
+		font-family: var(--font-brand);
+		color: var(--clr-black);
+		font-weight: 100;
 	}
 
 	.centered {
@@ -92,15 +47,6 @@ const currentYear = new Date().getFullYear();
 		transform: translate(-50%, -50%);
 		text-align: center;
 		height: 60%;
-	}
-
-	.photo {
-		mix-blend-mode: hard-light;
-	}
-
-	.parallax {
-		transform-style: preserve-3d;
-		perspective: 100px;
 	}
 
 	@media (min-width: 768px) {

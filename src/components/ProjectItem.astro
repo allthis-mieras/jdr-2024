@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import Carousel from '../components/Carousel.astro';
 
@@ -11,41 +12,64 @@ const { slug } = Astro.props;
 const entry = await getEntry('projects', slug);
 const { Content } = await entry.render();
 
-const { imgs: images, img_alts: imageAlts, type, title } = entry.data;
+const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 ---
 
-<section class="grid w-full project">
-	<header class="grid grid-cols-2 gap-0 px-vw-8 py-vw-4">
-		<h3 class="text-sm">{entry.data.type}</h3>
-		<h2 class="col-start-2 text-sm pl-vw-8">{entry.data.title}</h2>
-	</header>
-	<Carousel slug={slug}>
-		{
-			images.map((image: string, index: number) => (
-				<div class="swiper-slide">
-					<img src={image} alt={imageAlts[index]} />
-				</div>
-			))
-		}
-	</Carousel>
-	<div class="grid gap-0 md:grid-cols-2 px-vw-8 pb-vw-20">
-		<div class="info col-start-1 md:col-start-2 md:pl-vw-8 py-vw-4"><Content /></div>
+<div class="project border">
+	<div class="flex justify-between text-xs">
+		<h3 class="text-xs">{entry.data.role}</h3>
+		<p class="text-xs">{entry.data.release}</p>
 	</div>
-</section>
+	<div class="my-4 flex flex-col justify-center items-center">
+		<div class="media w-32">
+			<Carousel slug={slug}>
+				{
+					images.map((image: string, index: number) => (
+						<div class="swiper-slide">
+							<Image
+								src={image}
+								alt={imageAlts[index]}
+								width="1600"
+								height="900"
+								decoding="async"
+								loading="lazy"
+							/>
+						</div>
+					))
+				}
+			</Carousel>
+		</div>
+		<h2 class="text-center">{entry.data.title}</h2>
+	</div>
+
+	<div class="flex justify-between text-xs">
+		<ul class="flex gap-2">
+			<li>{entry.data.duration} mins</li>
+			<li>{entry.data.director}</li>
+		</ul>
+
+		<p class="">{entry.data.production}</p>
+	</div>
+
+	<div class="content">
+		<div class="info"><Content /></div>
+	</div>
+</div>
 
 <style>
+	* {
+		/* border: 1px solid red; */
+	}
 	section {
 		position: relative;
 	}
-	header {
-		position: sticky;
-		top: 2rem;
-		z-index: 10;
-		mix-blend-mode: exclusion;
-		color: white;
-	}
+
 	img {
 		width: 100%;
 		height: auto;
+	}
+
+	.content {
+		background: #ccc;
 	}
 </style>
