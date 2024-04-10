@@ -32,7 +32,7 @@ const { slug } = Astro.props;
 
     const swiperParams: SwiperOptions = {
       slidesPerView: 1,
-      spaceBetween: 50,
+      spaceBetween: 0,
     };
     const swiper = new Swiper("." + s.dataset.slug, swiperParams);
   });

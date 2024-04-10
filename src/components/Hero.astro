@@ -4,16 +4,17 @@ const currentYear = new Date().getFullYear();
 
 <header class="gap-0 bg-white md:grid l:grid-cols-2">
 	<div
-		class="visual flex relative items-center justify-center visual sm:relative md:h-screen md:sticky md:top-0"
+		class="visual parallax flex relative items-center justify-center sm:relative md:h-screen md:sticky md:top-0"
 	>
 		<!-- <div class="z-10 w-1/2 animation aspect-square"></div> -->
-		<img class="z-20 centered" src="../assets/images/logo-jdr-02-outline.svg" />
+		<img class="layer1 z-20 centered" src="../assets/images/logo-jdr-02-outline.svg" />
 		<img
-			class="absolute top-0 z-10 object-cover w-full h-full mix-blend-multiply"
+			class="lasyer2 photo absolute top-0 z-10 object-cover w-full h-full mix-blend-multiply"
 			src="./assets/images/portret-jeff-halftone.png"
 			alt="Jeff"
 		/>
-		<video class="z-5" src="./assets/video/03-test.mp4" autoplay loop playsinline muted></video>
+		<video class="layer3 z-5" src="./assets/video/03-test.mp4" autoplay loop playsinline muted>
+		</video>
 	</div>
 
 	<div class="item intro p-vw-8 pt-vw-32 pb-vw-12">
@@ -48,6 +49,7 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.visual {
+		contain: paint;
 		background: var(--bg);
 		z-index: 10;
 		min-height: 50vh;
@@ -90,6 +92,15 @@ const currentYear = new Date().getFullYear();
 		transform: translate(-50%, -50%);
 		text-align: center;
 		height: 60%;
+	}
+
+	.photo {
+		mix-blend-mode: hard-light;
+	}
+
+	.parallax {
+		transform-style: preserve-3d;
+		perspective: 100px;
 	}
 
 	@media (min-width: 768px) {
