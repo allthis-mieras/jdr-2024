@@ -10,5 +10,27 @@ export default {
 			tight: '1',
 		},
 	},
-	plugins: [require('tailwindcss-fluid-spacing'), require('tailwindcss-fluid-type')],
+	plugins: [
+		require('tailwindcss-fluid-spacing'),
+		require('tailwindcss-fluid-type')({
+			settings: {
+				fontSizeMin: 0.625,
+				fontSizeMax: 1.25,
+				ratioMin: 1.125,
+				ratioMax: 1.2,
+				screenMin: 20,
+				screenMax: 96,
+				unit: 'rem',
+				prefix: '',
+			},
+			values: {
+				// ...
+				base: 0,
+				// ...
+			},
+		}),
+	],
 };
+
+//https://github.com/ixkaito/tailwindcss-fluid-spacing
+//https://github.com/davidhellmann/tailwindcss-fluid-type

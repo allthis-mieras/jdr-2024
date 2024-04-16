@@ -7,18 +7,18 @@ const textLinks: { label: string; href: string }[] = [
 ];
 ---
 
-<nav class="outer w-full grid grid-cols-2 px-vw-2 py-vw-2 fixed z-50">
+<nav class="fixed z-50 w-full outer grid grid-cols-2 px-vw-2 py-vw-2">
 	<div class="left">
-		<h1 class="text-xs font-bold">
+		<h1 class="text-xs">
 			<a href="#" class="js-anchor-link">Jeffrey de Roode</a>
 		</h1>
 	</div>
-	<div class="right flex items-center justify-between">
-		<div id="date" class="date text-base-fluid">Time</div>
+	<div class="flex items-center justify-between right">
+		<div id="date" class="text-xs date">Time</div>
 		<div class="menu pl-vw-8">
 			{
 				textLinks.map((l) => (
-					<a class="text-xs-fluid" href={l.href}>
+					<a class="text-xs" href={l.href}>
 						{l.label}
 					</a>
 				))

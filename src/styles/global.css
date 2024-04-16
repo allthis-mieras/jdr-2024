@@ -17,6 +17,9 @@
 
 	--base-size: 1rem;
 
+	/* JDR */
+	--gapborder: 2px;
+
 	/* Text Sizes */
 	--text-xs: 0.675rem;
 	--text-sm: 0.875rem;
@@ -58,7 +61,7 @@
 	--easing-button-hover: 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* easeOutQuart */
 	--easing-nav-out: 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 	--easing-nav-in: 0.6s cubic-bezier(0.83, 0, 0.17, 1);
-	--theme-transition: 0.2s ease-in-out;
+	--theme-transition: 0s ease-in-out;
 	--ani-duration: 90s;
 
 	/* Breakpoints */
@@ -107,19 +110,14 @@ main {
 	text-wrap: balance;
 }
 
-#projects {
-	background: var(--text);
-	color: var(--bg);
-	position: relative;
-	min-height: 100vh;
-	transition:
-		color var(--theme-transition),
-		background var(--theme-transition);
-	/* overflow: hidden; */
-}
-
-.info p {
-	margin-bottom: 1rem;
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 @media (min-width: 768px) {

@@ -15,61 +15,232 @@ const { Content } = await entry.render();
 const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 ---
 
-<div class="project border">
-	<div class="flex justify-between text-xs">
-		<h3 class="text-xs">{entry.data.role}</h3>
-		<p class="text-xs">{entry.data.release}</p>
-	</div>
-	<div class="my-4 flex flex-col justify-center items-center">
-		<div class="media w-32">
-			<Carousel slug={slug}>
-				{
-					images.map((image: string, index: number) => (
-						<div class="swiper-slide">
-							<Image
-								src={image}
-								alt={imageAlts[index]}
-								width="1600"
-								height="900"
-								decoding="async"
-								loading="lazy"
-							/>
-						</div>
-					))
-				}
-			</Carousel>
+<div class="flex flex-col project__item">
+	<div class="flex flex-col w-full h-full cursor-pointer preview">
+		<div class="flex justify-between meta">
+			<p class="">{entry.data.role}</p>
+			<p class="">{entry.data.release}</p>
 		</div>
-		<h2 class="text-center">{entry.data.title}</h2>
+
+		<!-- middle -->
+		<div class="relative flex items-center justify-center my-4 grow">
+			<div class="flex flex-col w-48 poster">
+				<Carousel slug={slug}>
+					{
+						images.map((image: string, index: number) => (
+							<div class="swiper-slide">
+								<Image
+									src={image}
+									alt={imageAlts[index]}
+									width="1600"
+									height="900"
+									decoding="async"
+									loading="lazy"
+								/>
+							</div>
+						))
+					}
+				</Carousel>
+				<h2 class="text-center">{entry.data.title}</h2>
+			</div>
+			<div class="marquee">
+				<div class="track">
+					<div class="content noselect">
+						&nbsp;{entry.data.title}
+						{entry.data.title}
+						{entry.data.title}
+						{entry.data.title}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- meta bottom -->
+		<div class="flex justify-between px-2 py-2 text-xs meta">
+			<div class="flex gap-2">
+				<p class="">{entry.data.duration} mins</p>
+				<p class="">{entry.data.director}</p>
+			</div>
+			<p class="">{entry.data.production}</p>
+		</div>
 	</div>
 
-	<div class="flex justify-between text-xs">
-		<ul class="flex gap-2">
-			<li>{entry.data.duration} mins</li>
-			<li>{entry.data.director}</li>
-		</ul>
-
-		<p class="">{entry.data.production}</p>
-	</div>
-
-	<div class="content">
-		<div class="info"><Content /></div>
+	<div class="flex-col more">
+		<div class="flex info">
+			<div class="px-2 py-2 info"><Content /></div>
+		</div>
+		<div class="flex gap-4 px-2 py-2 text-xs links">
+			<a href="#" class="flex-1 close">close</a>
+			<a href="#" class="flex-1">trailer</a>
+		</div>
 	</div>
 </div>
-
 <style>
 	* {
 		/* border: 1px solid red; */
 	}
-	section {
+
+	.project__item {
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+
+		min-height: 80vh;
+		position: relative;
+		background: var(--bg);
+		color: var(--text);
+		overflow: hidden;
+	}
+
+	.project__item:nth-last-child(1):nth-child(odd) {
+		background: red;
+		grid-column: 1/-1;
+		z-index: 15;
+	}
+
+	h1 {
+		font-family: 'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+			'DejaVu Sans Mono', monospace;
+		font-optical-sizing: auto;
+	}
+
+	.meta {
+		color: var(--text);
+		font-family: 'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+			'DejaVu Sans Mono', monospace;
+		font-optical-sizing: auto;
+		font-size: 0.475rem;
+		line-height: 100%;
+		font-weight: 400;
+		letter-spacing: -0.025rem;
+		padding: var(--space-xxs);
+	}
+
+	.project__item .poster {
+		z-index: 15;
 		position: relative;
 	}
-
-	img {
-		width: 100%;
-		height: auto;
+	.project__item:hover {
+		background: var(--clr-brand);
+		--text: black;
 	}
 
-	.content {
-		background: #ccc;
+	.project__item:hover .marquee {
+		visibility: visible;
+		transform: rotate(-4deg);
+	}
+
+	.marquee {
+		visibility: hidden;
+		position: absolute;
+		top: 40%;
+		transform: translate(0, -65%);
+		z-index: 1;
+		font-family: var(--font-brand);
+		color: white;
+		font-size: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
+		width: 100%;
+		max-width: 100%;
+		height: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
+		overflow: hidden;
+		line-height: 1;
+		transform: rotate(-12deg);
+	}
+
+	.track {
+		position: absolute;
+		white-space: nowrap;
+		will-change: transform;
+		animation: marquee 32s linear infinite;
+	}
+
+	@keyframes marquee {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	.more {
+		overflow: visible;
+		transition: var(--transition);
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	.hidecontent {
+		display: none;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.info {
+		display: grid;
+		grid-auto-flow: column;
+		gap: 1rem;
+		font-size: 0.675rem;
+		line-height: 112.5%;
+	}
+
+	.info p {
+		font-weight: 500;
+	}
+
+	.info p:nth-child(1) {
+		font-weight: 700;
+	}
+
+	.info p {
+		font-size: 0.875rem;
+		line-height: 120%;
+	}
+
+	.info > p:nth-child(1) {
+		font-weight: 700 !important;
+	}
+
+	@media only screen and (max-width: 600px) {
+		.grid__item {
+			min-height: 100vh; /* Volledige hoogte van het viewport per item */
+		}
 	}
 </style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelectorAll('.more').forEach(function (more) {
+			more.classList.add('hidecontent'); // Voeg de hidecontent class toe aan elk more element
+		});
+
+		var previews = document.querySelectorAll('.preview');
+		previews.forEach(function (preview) {
+			preview.addEventListener('click', function () {
+				var more = preview.nextElementSibling;
+
+				// Sluit alle andere more elementen
+				document.querySelectorAll('.more').forEach(function (el) {
+					if (el !== more) {
+						el.classList.add('hidecontent');
+					}
+				});
+
+				// Toggle de huidige
+				more.classList.toggle('hidecontent');
+			});
+		});
+
+		// Voeg event listeners toe aan alle 'close' knoppen
+		document.querySelectorAll('.close').forEach(function (close) {
+			close.addEventListener('click', function (event) {
+				event.preventDefault();
+				var more = close.closest('.more');
+				more.classList.add('hidecontent');
+			});
+		});
+	});
+</script>

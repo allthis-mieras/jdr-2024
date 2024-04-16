@@ -2,30 +2,29 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<header class="gap-0 bg-white md:grid l:grid-cols-2">
-	<div
-		class="visual parallax flex relative items-center justify-center sm:relative md:h-screen md:sticky md:top-0"
-	>
+<header class="sticky z-10 bg-white gap-0 md:grid l:grid-cols-2">
+	<div class="relative flex items-center justify-center visual sm:relative md:h-screen">
 		<img
-			class="absolute top-0 z-10 object-cover w-full h-full"
+			class="absolute z-10 object-cover w-full h-full"
 			src="./assets/images/jdr-cover.jpg"
 			alt="Jeffrey de Roode"
 		/>
 	</div>
 
-	<div class="intro p-vw-4 pt-vw-32 pb-vw-12 text-center tw">
-		<p class="text-7xl uppercase">
-			I work on films that broaden horizons and share new perspectives.
-		</p>
+	<div class="flex items-center justify-center h-full">
+		<div class="flex flex-col p-4 text-center intro">
+			<p class="uppercase text-7xl text-balance">
+				I work on films that broaden horizons and share new perspectives.
+			</p>
+			<p class="text-xs note">Feel free to reach out.</p>
+		</div>
 	</div>
 </header>
 
 <style>
 	header {
-		position: relative;
 		background: var(--clr-brand);
 		color: var(--clr-black);
-		z-index: 10;
 	}
 
 	.visual {
@@ -40,13 +39,9 @@ const currentYear = new Date().getFullYear();
 		font-weight: 100;
 	}
 
-	.centered {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		text-align: center;
-		height: 60%;
+	.intro .note {
+		font-family: var(--font-body);
+		font-weight: 600;
 	}
 
 	@media (min-width: 768px) {
