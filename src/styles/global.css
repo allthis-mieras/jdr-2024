@@ -82,8 +82,8 @@
 @font-face {
 	font-family: 'Sharpie';
 	src:
-		url('./assets/fonts/sharpie-webfont.woff2') format('woff2'),
-		url('.assets/fonts/sharpie-webfont.woff') format('woff');
+		url('../assets/fonts/sharpie-webfont.woff2') format('woff2'),
+		url('../assets/fonts/sharpie-webfont.woff') format('woff');
 
 	font-weight: normal;
 	font-style: normal;
