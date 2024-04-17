@@ -10,9 +10,11 @@ description: |
   Fortuyn: Un Dutch tells the story of Dutch politician Pim Fortuyn from a bicultural perspective. Both in archival footage and interviews, we shift the narrative of Fortuyn by taking the viewpoint of people with a bicultural background as our starting point.
 publishDate: 2023-11-29 16:03:21
 imgs:
-  - /assets/images/project-feisforever.jpg
+  - /assets/images/project-feisforever-01.png
+  - /assets/images/project-feisforever-02.png
 img_alts:
-  - IFFR
+  - Feis
+  - Feis
 ---
 
 Fortuyn: Un Dutch tells the story of Dutch politician Pim Fortuyn from a bicultural perspective. Both in archival footage and interviews, we shift the narrative of Fortuyn by taking the viewpoint of people with a bicultural background as our starting point.

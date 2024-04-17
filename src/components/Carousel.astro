@@ -7,7 +7,11 @@ const { slug } = Astro.props;
 ---
 
 <!-- Swiper -->
-<div class:list={['swiper', 'swiper-' + slug]} data-slug={'swiper-' + slug}>
+<div
+	class:list={['swiper', 'swiper-' + slug]}
+	data-swiper-autoplay="2000"
+	data-slug={'swiper-' + slug}
+>
 	<div class="swiper-wrapper">
 		<slot />
 	</div>
@@ -33,7 +37,11 @@ const { slug } = Astro.props;
 		const swiperParams: SwiperOptions = {
 			slidesPerView: 1,
 			spaceBetween: 0,
+			autoplay: {
+				delay: 5000,
+			},
 		};
+
 		const swiper = new Swiper('.' + s.dataset.slug, swiperParams);
 	});
 </script>

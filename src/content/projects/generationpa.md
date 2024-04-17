@@ -1,20 +1,26 @@
 ---
 title: Generation Pa
 duration: 55
-director: Olivier S. Garcia
-production: Yalla docs & NTR
+director: Bibi Fadlalla
+production: BIND Film & NTR
 release: 2024
 role: Line Producer
 type: Documentary
 description: |
-  Fortuyn: Un Dutch tells the story of Dutch politician Pim Fortuyn from a bicultural perspective. Both in archival footage and interviews, we shift the narrative of Fortuyn by taking the viewpoint of people with a bicultural background as our starting point.
+  How do you learn to be a man without a father figure to guide you? Mich, Jay and Ruwhel are three devoted dads from Rotterdam. Growing up without their fathers, the three men had to figure things out on their own from a very early age.
 publishDate: 2023-11-29 16:03:21
 imgs:
-  - /assets/images/project-feisforever.jpg
+  - /assets/images/project-gp-01.png
+  - /assets/images/project-gp-02.png
+  - /assets/images/project-gp-03.png
+  - /assets/images/project-gp-04.png
 img_alts:
-  - IFFR
+  - Project Pa
+  - Project Pa
+  - Project Pa
+  - Project Pa
 ---
 
-Fortuyn: Un Dutch tells the story of Dutch politician Pim Fortuyn from a bicultural perspective. Both in archival footage and interviews, we shift the narrative of Fortuyn by taking the viewpoint of people with a bicultural background as our starting point.
+How do you learn to be a man without a father figure to guide you? Mich, Jay and Ruwhel are three devoted dads from Rotterdam. Growing up without their fathers, the three men had to figure things out on their own from a very early age.
 
-How has the right-wing turn initiated by Fortuyn shaped their lives in the multicultural society he declared bankrupt? And which political and societal events influenced the resurgence of Islamophobia that Fortuyn initiated? The series is history retold; how we remember our history depends on who we allow to tell the story.
+Now raising their own children they do everything they can to break the generational spiral. Do they manage to be there unconditionally for their offspring and fulfill their roles as protectors of the family? An intimate portrait of masculinity, vulnerability and fatherhood.

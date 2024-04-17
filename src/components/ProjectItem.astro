@@ -103,14 +103,12 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	.project__item:hover .marquee {
 		visibility: visible;
 		opacity: 1;
-
 		transform: scale(1.2) rotate(-8deg) translateY(-5%);
 	}
 
 	.project__item:nth-last-child(1):nth-child(odd) {
-		background: red;
 		grid-column: 1/-1;
-		z-index: 15;
+		/* z-index: 15; */
 	}
 
 	h2 {
@@ -151,7 +149,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		transform: scale(0.9);
 		transform: rotate(-6deg);
 		opacity: 0;
-		transition: all 0.3s ease-in-out 0.2s;
+		transition: all 0.3s ease-in-out 0.125s;
 		visibility: hidden;
 		max-width: 100%;
 		width: 100%;

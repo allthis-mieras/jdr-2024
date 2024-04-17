@@ -1,7 +1,7 @@
 <input id="color-mode" type="checkbox" name="color-mode" />
-<label for="color-mode" class="bottom-vw-4 right-vw-8">
-	<span class="dark-mode-hide">Dark</span>
-	<span class="light-mode-hide">Light</span>
+<label for="color-mode" class="bottom-vw-4 right-vw-4">
+	<span class="dark-mode-hide"></span>
+	<span class="light-mode-hide"></span>
 </label>
 
 <style is:global>
@@ -52,15 +52,17 @@
 	}
 	label {
 		cursor: pointer;
+		display: none;
 		position: fixed;
 		background: var(--text);
 		color: var(--bg);
-		padding: 0.25rem 0.675rem;
+		padding: 0.25rem 0.25rem;
 		display: flex;
 		align-items: center;
-		border-radius: 0.25rem;
+		border-radius: 100vw;
 		font-family: var(--font-mono);
-		font-size: var(--text-sm) !important;
+		font-size: var(--text-xs) !important;
+		text-transform: uppercase;
 		/* box-shadow:
       0 2px var(--bg),
       0 4px var(--text); */
@@ -84,7 +86,7 @@
 		content: '✔\FE0E';
 		height: 1rem;
 		width: 1rem;
-		margin-left: 0.25rem;
+		/* margin-left: 0.25rem; */
 		border: solid 2px var(--bg);
 		text-align: center;
 		border-radius: 0.5rem;
