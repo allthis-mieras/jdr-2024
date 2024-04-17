@@ -5,6 +5,7 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: 'E-mail', href: 'mailto:hello@jeffreyderoode.nl' },
 	{ label: 'Call', href: '#contact' },
 ];
+import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
 <nav class="fixed z-50 grid w-full grid-cols-2 outer overflow-hidden">
@@ -24,6 +25,7 @@ const textLinks: { label: string; href: string }[] = [
 				))
 			}
 		</div>
+		<ThemeToggle />
 	</div>
 </nav>
 

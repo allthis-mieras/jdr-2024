@@ -123,6 +123,14 @@ main {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.info p {
+	font-weight: 500;
+}
+
+.info > p:nth-child(1) {
+	font-weight: 700;
+}
+
 @media (min-width: 768px) {
 	:root {
 		--base-amount: calc(100vw / 16);

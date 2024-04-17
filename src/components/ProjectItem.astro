@@ -69,9 +69,9 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		<div class="flex info">
 			<Content />
 		</div>
-		<div class="flex links">
-			<a href="#" class="flex-1 close">close</a>
-			<a href="#" class="flex-1">trailer</a>
+		<div class="flex gap-2 links">
+			<a href="#" class="grow close">close</a>
+			<a href="#" class="grow">trailer</a>
 		</div>
 	</div>
 </div>
@@ -87,7 +87,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		align-items: flex-start;
 		justify-content: center;
 
-		min-height: 80vh;
+		min-height: 100vh;
 		position: relative;
 		background: var(--bg);
 		color: var(--text);
@@ -113,10 +113,10 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		z-index: 15;
 	}
 
-	h1 {
-		font-family: 'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-			'DejaVu Sans Mono', monospace;
+	h2 {
+		font-family: var(--font-mono);
 		font-optical-sizing: auto;
+		letter-spacing: -0.0325rem;
 	}
 
 	.meta {
@@ -146,10 +146,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		font-size: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
 		height: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
 		line-height: 120%;
-
-		/* overflow: hidden; */
 		position: absolute;
-
 		transform: translateY(-50%);
 		transform: scale(0.9);
 		transform: rotate(-6deg);
@@ -197,28 +194,33 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		gap: 1rem;
 		font-size: 0.675rem;
 		line-height: 112.5%;
+		padding: var(--space-xs);
+		border-top: var(--gapborder) solid var(--text);
+		border-bottom: var(--gapborder) solid var(--text);
 	}
-
 	.info p {
+		font-size: 0.875rem;
+		line-height: 120%;
 		font-weight: 500;
 	}
 
 	.info p:nth-child(1) {
-		font-weight: 700;
-	}
-
-	.info p {
-		font-size: 0.875rem;
-		line-height: 120%;
-	}
-
-	.info > p:nth-child(1) {
 		font-weight: 700 !important;
+	}
+
+	.links {
+		font-size: 0.675rem;
+		line-height: 112.5%;
+		padding: var(--space-xs);
+	}
+
+	.close {
+		padding-left: var(--gapborder);
 	}
 
 	@media only screen and (max-width: 600px) {
 		.grid__item {
-			min-height: 100vh; /* Volledige hoogte van het viewport per item */
+			min-height: 100vh;
 		}
 	}
 </style>
@@ -243,6 +245,9 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 				// Toggle de huidige
 				more.classList.toggle('hidecontent');
+
+				// Voer een smooth scroll uit naar de bovenkant van het geklikte preview element
+				preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			});
 		});
 
@@ -252,6 +257,12 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 				event.preventDefault();
 				var more = close.closest('.more');
 				more.classList.add('hidecontent');
+
+				// Optioneel: scroll naar de bovenkant van het preview element na het sluiten
+				var preview = more.previousElementSibling;
+				if (preview) {
+					preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
 			});
 		});
 	});
