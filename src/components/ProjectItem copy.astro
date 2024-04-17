@@ -15,12 +15,14 @@ const { Content } = await entry.render();
 const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 ---
 
-<div class="flex relative flex-col project__item">
-	<div class="flex absolute top-0 left-0 w-full z-20 justify-between meta">
-		<p class="">{entry.data.role}</p>
-		<p class="">{entry.data.release}</p>
-	</div>
-	<div class="flex relative flex-col w-full h-full cursor-pointer preview">
+<div class="flex flex-col project__item">
+	<div class="flex flex-col w-full h-full cursor-pointer preview">
+		<div class="flex justify-between meta">
+			<p class="">{entry.data.role}</p>
+			<p class="">{entry.data.release}</p>
+		</div>
+
+		<!-- middle -->
 		<div class="relative flex items-center justify-center my-4 grow">
 			<div class="flex flex-col gap-2 w-48 poster">
 				<Carousel slug={slug}>
@@ -52,9 +54,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="bottom more">
+		<!-- meta bottom -->
 		<div class="flex justify-between text-xs meta">
 			<div class="flex gap-2">
 				<p class="">{entry.data.duration} mins</p>
@@ -62,14 +63,15 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 			</div>
 			<p class="">{entry.data.production}</p>
 		</div>
-		<div class="flex-col">
-			<div class="flex info">
-				<Content />
-			</div>
-			<div class="flex gap-2 links">
-				<a href="#" class="grow close">close</a>
-				<a href="#" class="grow">trailer</a>
-			</div>
+	</div>
+
+	<div class="flex-col more">
+		<div class="flex info">
+			<Content />
+		</div>
+		<div class="flex gap-2 links">
+			<a href="#" class="grow close">close</a>
+			<a href="#" class="grow">trailer</a>
 		</div>
 	</div>
 </div>
@@ -85,7 +87,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		align-items: flex-start;
 		justify-content: center;
 
-		height: 100vh;
+		min-height: 100vh;
 		position: relative;
 		background: var(--bg);
 		color: var(--text);
@@ -126,7 +128,6 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		font-weight: 400;
 		letter-spacing: -0.025rem;
 		padding: var(--space-xs);
-		height: 1.5rem;
 	}
 
 	.poster {
@@ -171,28 +172,18 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		}
 	}
 
-	.bottom {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-
-		/* transform: translateY(calc(100% - 1.5rem)); */
-		transition: transform 0.3s ease-in-out 0.125s;
-	}
-
 	.more {
-		/* overflow: visible; */
-
+		overflow: visible;
+		transition: var(--transition);
 		transform: translateY(0);
+		opacity: 1;
 	}
 
 	.hidecontent {
-		transform: translateY(calc(100% - 1.5rem));
-		transition: transform 0.3s ease-in-out 0.125s;
-		/* opacity: 0; */
-		/* height: 0; */
-		/* overflow: hidden; */
+		display: none;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
 	}
 
 	.info {
