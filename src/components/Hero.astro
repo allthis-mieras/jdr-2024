@@ -1,19 +1,25 @@
 ---
 const currentYear = new Date().getFullYear();
+import { Image } from 'astro:assets';
+import hero from '../assets/jdr-cover-doel-01.jpg';
 ---
 
-<header class="sticky z-10 bg-white gap-0 md:grid l:grid-cols-2">
-	<div class="relative flex items-center justify-center visual sm:relative md:h-screen">
-		<img
+<header class="sticky top-0 z-20 flex flex-col min-h-screen md:grid md:grid-cols-2">
+	<div
+		class="relative flex items-center justify-center h-full bg-center bg-cover grow visual md:h-screen"
+	>
+		<Image
+			src={hero}
+			width={hero.width / 2}
+			densities={[1.5, 2]}
+			alt="Jeffreu de Roode"
 			class="absolute z-10 object-cover w-full h-full"
-			src="./assets/images/jdr-cover.jpg"
-			alt="Jeffrey de Roode"
 		/>
 	</div>
 
-	<div class="flex items-center justify-center h-full">
-		<div class="flex flex-col p-4 text-center intro">
-			<p class="uppercase text-7xl text-balance">
+	<div class="flex items-center justify-center h-full p-4 copy">
+		<div class="text-center">
+			<p class="uppercase intro text-7xl md:text-5xl lg:text-7xl text-balance">
 				I work on films that broaden horizons and share new perspectives.
 			</p>
 			<p class="text-xs note">Feel free to reach out.</p>
@@ -23,14 +29,20 @@ const currentYear = new Date().getFullYear();
 
 <style>
 	header {
-		background: var(--clr-brand);
+		background: var(--text);
+		/* background: red; */
 		color: var(--clr-black);
+		gap: var(--gapborder);
+		border-bottom: var(--gapborder) solid var(--text);
 	}
 
 	.visual {
 		background: var(--bg);
-		z-index: 10;
+
 		min-height: 50vh;
+	}
+	.copy {
+		background: var(--clr-brand);
 	}
 
 	.intro {

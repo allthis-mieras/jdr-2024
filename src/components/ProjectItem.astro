@@ -24,7 +24,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 		<!-- middle -->
 		<div class="relative flex items-center justify-center my-4 grow">
-			<div class="flex flex-col w-48 poster">
+			<div class="flex flex-col gap-2 w-48 poster">
 				<Carousel slug={slug}>
 					{
 						images.map((image: string, index: number) => (
@@ -45,8 +45,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 			</div>
 			<div class="marquee">
 				<div class="track">
-					<div class="content noselect">
-						&nbsp;{entry.data.title}
+					<div class="content noselect py-vw-1-min@md">
+						{entry.data.title}
 						{entry.data.title}
 						{entry.data.title}
 						{entry.data.title}
@@ -56,7 +56,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		</div>
 
 		<!-- meta bottom -->
-		<div class="flex justify-between px-2 py-2 text-xs meta">
+		<div class="flex justify-between text-xs meta">
 			<div class="flex gap-2">
 				<p class="">{entry.data.duration} mins</p>
 				<p class="">{entry.data.director}</p>
@@ -67,9 +67,9 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 	<div class="flex-col more">
 		<div class="flex info">
-			<div class="px-2 py-2 info"><Content /></div>
+			<Content />
 		</div>
-		<div class="flex gap-4 px-2 py-2 text-xs links">
+		<div class="flex links">
 			<a href="#" class="flex-1 close">close</a>
 			<a href="#" class="flex-1">trailer</a>
 		</div>
@@ -92,6 +92,19 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		background: var(--bg);
 		color: var(--text);
 		overflow: hidden;
+		scroll-snap-align: start;
+	}
+
+	.project__item:hover {
+		background: var(--clr-brand);
+		--text: black;
+	}
+
+	.project__item:hover .marquee {
+		visibility: visible;
+		opacity: 1;
+
+		transform: scale(1.2) rotate(-8deg) translateY(-5%);
 	}
 
 	.project__item:nth-last-child(1):nth-child(odd) {
@@ -108,45 +121,44 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 	.meta {
 		color: var(--text);
-		font-family: 'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-			'DejaVu Sans Mono', monospace;
+		font-family: var(--font-mono);
+
 		font-optical-sizing: auto;
-		font-size: 0.475rem;
+		font-smooth: auto;
+		font-size: var(--text-xs);
 		line-height: 100%;
 		font-weight: 400;
 		letter-spacing: -0.025rem;
-		padding: var(--space-xxs);
+		padding: var(--space-xs);
 	}
 
-	.project__item .poster {
+	.poster {
 		z-index: 15;
 		position: relative;
 	}
-	.project__item:hover {
-		background: var(--clr-brand);
-		--text: black;
-	}
-
-	.project__item:hover .marquee {
-		visibility: visible;
-		transform: rotate(-4deg);
-	}
-
+	/* debug stuff */
+	/* * * * {
+		outline: 1px solid rgba(45, 255, 25, 0.766);
+	} */
 	.marquee {
-		visibility: hidden;
-		position: absolute;
-		top: 40%;
-		transform: translate(0, -65%);
-		z-index: 1;
-		font-family: var(--font-brand);
 		color: white;
+		font-family: var(--font-brand);
 		font-size: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
-		width: 100%;
-		max-width: 100%;
 		height: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
-		overflow: hidden;
-		line-height: 1;
-		transform: rotate(-12deg);
+		line-height: 120%;
+
+		/* overflow: hidden; */
+		position: absolute;
+
+		transform: translateY(-50%);
+		transform: scale(0.9);
+		transform: rotate(-6deg);
+		opacity: 0;
+		transition: all 0.3s ease-in-out 0.2s;
+		visibility: hidden;
+		max-width: 100%;
+		width: 100%;
+		z-index: 1;
 	}
 
 	.track {

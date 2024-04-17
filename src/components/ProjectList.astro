@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import { Debug } from 'astro:components';
+import { Image } from 'astro:assets';
+import hero from '../assets/jdr-cover-doel-02.jpg';
 
 const projects = (await getCollection('projects'))
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
@@ -9,12 +10,26 @@ const projects = (await getCollection('projects'))
 import ProjectItem from './ProjectItem.astro';
 ---
 
-<div id="projects" class="z-10 grid projects md:grid-cols-2">
+<div id="projects" class="z-20 grid projects md:grid-cols-2">
 	{
 		projects.map((p, index) => (
 			<>
 				<ProjectItem slug={p.slug} />
-				{index === 2 && <div class="project__item empty-container">{<div>hoi</div>}</div>}
+				{index === 2 && (
+					<div class="relative project__item empty-container  overflow-hidden">
+						<div class="absolute w-full h-full -z-10 overflow-hidden ">
+							{
+								<Image
+									src={hero}
+									width={hero.width / 2}
+									densities={[1.5, 2]}
+									alt="Hero Image"
+									class="absolute top-0 w-1/2 -z-10 h-full w-fit object-cover h-screen "
+								/>
+							}
+						</div>
+					</div>
+				)}
 			</>
 		))
 	}
@@ -35,16 +50,19 @@ import ProjectItem from './ProjectItem.astro';
 			color var(--theme-transition),
 			background var(--theme-transition);
 		width: 100%;
-		z-index: 10;
 		border-top: var(--gapborder) solid var(--text);
 	}
 
 	.empty-container {
-		background: brown !important;
-		color: green;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+	}
+
+	.empty-container img {
+		width: inherit;
+		z-index: -1;
+		width: 50vw;
 	}
 </style>

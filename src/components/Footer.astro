@@ -2,13 +2,13 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="grid px-vw-8 pt-vw-24 pb-vw-8 gap-vw-12">
+<footer class="grid h-screen z-0 px-vw-8 pt-vw-24 pb-vw-8 gap-vw-12">
 	<p class="text-4xl font-extrabold tracking-tight">
 		Do you want to collaborate? <br />Get in touch!
 	</p>
 	<div class="grid grid-cols-1 gap-vw-12 contact md:grid-cols-4">
 		<ul class="md:col-span-2" itemscope itemtype="http://schema.org/Person">
-			<li itemprop="name">Jeffrey de Roode</li>
+			<li itemprop="name">Jeffrey <br />de Roode</li>
 			<li itemprop="jobTitle">Producer</li>
 			<li>
 				<a href="mailto:hello@jeffreyderoode.nl" itemprop="email">hello@jeffreyderoode.nl</a>
@@ -102,7 +102,6 @@ const currentYear = new Date().getFullYear();
 		background: var(--text);
 		color: var(--bg);
 		font-size: 0.875rem;
-		z-index: 0;
 	}
 
 	footer a {
