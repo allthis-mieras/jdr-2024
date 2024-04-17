@@ -1,8 +1,8 @@
 ---
 /** Main menu items - Verplaatsen naar const */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'IG', href: '#content' },
-	{ label: 'E-mail', href: '#projects' },
+	// { label: 'IG', href: '#content' },
+	{ label: 'E-mail', href: 'mailto:hello@jeffreyderoode.nl' },
 	{ label: 'Call', href: '#contact' },
 ];
 ---
@@ -15,7 +15,7 @@ const textLinks: { label: string; href: string }[] = [
 	</div>
 	<div class="flex items-center justify-between right">
 		<div id="date" class="date">Time</div>
-		<div class="menu pl-vw-8">
+		<div class="menu uppercase pl-vw-8">
 			{
 				textLinks.map((l) => (
 					<a class="" href={l.href}>
