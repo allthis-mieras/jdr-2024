@@ -2,61 +2,71 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="grid h-screen z-0 px-vw-8 pt-vw-24 pb-vw-8 gap-vw-12">
-	<p class="text-4xl font-extrabold tracking-tight">
-		Do you want to collaborate? <br />Get in touch!
+<footer class="flex flex-col h-screen z-0">
+	<p class="text-4xl tracking-tight" itemprop="name">
+		Jeffrey <br />de Roode
 	</p>
 	<div class="grid grid-cols-1 gap-vw-12 contact md:grid-cols-4">
-		<ul class="md:col-span-2" itemscope itemtype="http://schema.org/Person">
-			<li itemprop="name">Jeffrey <br />de Roode</li>
-			<li itemprop="jobTitle">Producer</li>
-			<li>
-				<a href="mailto:hello@jeffreyderoode.nl" itemprop="email">hello@jeffreyderoode.nl</a>
-			</li>
+		<div>
+			<h3>Contact</h3>
+			<ul class="md:col-span-2" itemscope itemtype="http://schema.org/Person">
+				<li itemprop="jobTitle">Producer</li>
+				<li>
+					<a href="mailto:hello@jeffreyderoode.nl" itemprop="email">hello@jeffreyderoode.nl</a>
+				</li>
 
-			<li>
-				<a href="tel://+310646714731" itemprop="telephone">+31(0)646714731</a>
-			</li>
-			<li class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-				<a
-					itemprop="streetAddress"
-					href="https://goo.gl/maps/TPdngwBHEb1kyXfCA"
-					rel="noopener"
-					target="_blank"
-				>
-					Goudsesingel 136
-				</a>
-			</li>
-			<li>
-				<span itemprop="postalCode">3011 KD</span>
-				<span itemprop="addressLocality">Rotterdam</span>
-			</li>
-		</ul>
+				<li>
+					<a href="tel://+310646714731" itemprop="telephone">+31(0)646714731</a>
+				</li>
+			</ul>
+		</div>
 
-		<ul class="social">
-			<li>
-				<a href="https://www.facebook.com/jeffrey.manuel.334" rel="noopener" target="_blank">
-					Facebook
-				</a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/jeffreyderoode/" rel="noopener" target="_blank">
-					Instagram
-				</a>
-			</li>
-			<li>
-				<a
-					href="https://www.linkedin.com/in/jeffrey-de-roode-857575139/"
-					rel="noopener"
-					target="_blank"
-				>
-					LinkedIn
-				</a>
-			</li>
-			<li>
-				<a href="https://vimeo.com/jeffreyderoode" rel="noopener" target="_blank">Vimeo</a>
-			</li>
-		</ul>
+		<div>
+			<h3>Address</h3>
+			<ul>
+				<li class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<a
+						itemprop="streetAddress"
+						href="https://goo.gl/maps/TPdngwBHEb1kyXfCA"
+						rel="noopener"
+						target="_blank"
+					>
+						Goudsesingel 136
+					</a>
+				</li>
+				<li>
+					<span itemprop="postalCode">3011 KD</span>
+					<span itemprop="addressLocality">Rotterdam</span>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h3>Social</h3>
+			<ul class="social">
+				<li>
+					<a href="https://www.facebook.com/jeffrey.manuel.334" rel="noopener" target="_blank">
+						Facebook
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/jeffreyderoode/" rel="noopener" target="_blank">
+						Instagram
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.linkedin.com/in/jeffrey-de-roode-857575139/"
+						rel="noopener"
+						target="_blank"
+					>
+						LinkedIn
+					</a>
+				</li>
+				<li>
+					<a href="https://vimeo.com/jeffreyderoode" rel="noopener" target="_blank">Vimeo</a>
+				</li>
+			</ul>
+		</div>
 		<ul class="business">
 			<li>KVK 68591012</li>
 			<li>BTW NL001798656B14</li>
