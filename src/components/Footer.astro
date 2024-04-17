@@ -9,8 +9,8 @@ const currentYear = new Date().getFullYear();
 		</p>
 	</div>
 
-	<div class="content grid grid-cols-1 contact md:grid-cols-4">
-		<div>
+	<div class="content grid grid-cols-2 contact md:grid-cols-4">
+		<div class="pb-4 md:pb-0">
 			<h3>Contact</h3>
 			<ul class="md:col-span-2" itemscope itemtype="http://schema.org/Person">
 				<li itemprop="jobTitle">Producer</li>
@@ -24,7 +24,7 @@ const currentYear = new Date().getFullYear();
 			</ul>
 		</div>
 
-		<div>
+		<div class="pb-4 md:pb-0">
 			<h3>Address</h3>
 			<ul>
 				<li class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -43,7 +43,7 @@ const currentYear = new Date().getFullYear();
 				</li>
 			</ul>
 		</div>
-		<div>
+		<div class="pb-4 md:pb-0">
 			<h3>Social</h3>
 			<ul class="social">
 				<li>
@@ -70,11 +70,13 @@ const currentYear = new Date().getFullYear();
 				</li>
 			</ul>
 		</div>
-		<ul class="business">
-			<li>KVK 68591012</li>
-			<li>BTW NL001798656B14</li>
-			<li><a href="#" target="_blank">Terms & Conditions</a></li>
-		</ul>
+		<div class="pb-4 md:pb-0">
+			<ul class="business">
+				<li>KVK 68591012</li>
+				<li>BTW NL001798656B14</li>
+				<li><a href="#" target="_blank">Terms & Conditions</a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="credits grid grid-cols-2 pv-vw-2">
 		<p class="">&copy; {currentYear} Jeffrey de Roode</p>
@@ -113,13 +115,14 @@ const currentYear = new Date().getFullYear();
 		color: var(--bg);
 		font-family: var(--font-mono);
 		font-size: 0.675rem;
-		font-weight: 600;
+		font-weight: 500;
 		left: 0;
 		line-height: 133%;
 		position: sticky;
 		text-transform: uppercase;
 		width: 100%;
 		padding: var(--space-xs);
+		letter-spacing: 0.025rem;
 		gap: 1rem;
 	}
 
@@ -141,5 +144,7 @@ const currentYear = new Date().getFullYear();
 	}
 	.credits {
 		gap: var(--gapborder);
+		font-size: 0.5rem;
+		opacity: 0.5;
 	}
 </style>
