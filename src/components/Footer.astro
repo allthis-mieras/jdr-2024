@@ -3,10 +3,13 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="flex flex-col h-screen z-0">
-	<p class="text-4xl tracking-tight" itemprop="name">
-		Jeffrey <br />de Roode
-	</p>
-	<div class="grid grid-cols-1 gap-vw-12 contact md:grid-cols-4">
+	<div class="grow content-end">
+		<p class="text-8xl brand leading-3" itemprop="name">
+			Jeffrey <br />de Roode
+		</p>
+	</div>
+
+	<div class="content grid grid-cols-1 contact md:grid-cols-4">
 		<div>
 			<h3>Contact</h3>
 			<ul class="md:col-span-2" itemscope itemtype="http://schema.org/Person">
@@ -73,9 +76,9 @@ const currentYear = new Date().getFullYear();
 			<li><a href="#" target="_blank">Terms & Conditions</a></li>
 		</ul>
 	</div>
-	<div class="grid grid-cols-2 pv-vw-2">
-		<p class="font-normal">&copy; {currentYear} Jeffrey de Roode</p>
-		<p class="font-normal">
+	<div class="credits grid grid-cols-2 pv-vw-2">
+		<p class="">&copy; {currentYear} Jeffrey de Roode</p>
+		<p class="">
 			design + development <a href="https://allthis.digital" target="_blank">allthis.digital</a>
 		</p>
 	</div>
@@ -105,22 +108,38 @@ const currentYear = new Date().getFullYear();
 </script>
 <style>
 	footer {
-		position: sticky;
-		bottom: 0;
-		left: 0;
-		width: 100%;
 		background: var(--text);
+		bottom: 0;
 		color: var(--bg);
-		font-size: 0.875rem;
+		font-family: var(--font-mono);
+		font-size: 0.675rem;
+		font-weight: 600;
+		left: 0;
+		line-height: 133%;
+		position: sticky;
+		text-transform: uppercase;
+		width: 100%;
+		padding: var(--space-xs);
+		gap: 1rem;
 	}
 
 	footer a {
-		/* color: var(--clr-black); */
 		text-decoration: none;
-		border-bottom: 0.2rem solid rgba(0, 0, 0, 0.4);
-		transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 	footer a:hover {
-		border-bottom: 0.2rem solid rgba(0, 0, 0, 0.8);
+		border-bottom: 0.125rem solid var(--bg);
+	}
+
+	.brand {
+		font-family: var(--font-brand);
+		text-transform: uppercase;
+		line-height: 80%;
+	}
+
+	.content {
+		gap: var(--gapborder);
+	}
+	.credits {
+		gap: var(--gapborder);
 	}
 </style>
