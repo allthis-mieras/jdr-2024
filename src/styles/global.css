@@ -134,7 +134,8 @@ main {
 @media (min-width: 768px) {
 	:root {
 		--base-amount: calc(100vw / 16);
-		--base-size: calc(var(--base-amount) / 5);
+		/* --base-size: calc(var(--base-amount) / 5); */
+		--base-size: font-size: clamp(12rem, 11.0769rem + 4.1026vw, 16rem);
 	}
 }
 
