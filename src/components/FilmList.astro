@@ -1,0 +1,38 @@
+---
+import FilmCard from './FilmCard.astro';
+import { Image } from 'astro:assets';
+import bgImage from '../assets/jdr-cover-doel-02.jpg';
+
+const res = await fetch(
+	'https://script.google.com/macros/s/AKfycbwdKa7W4_D89VmHm6A616cuK96hLqnLQ9ApjrBE_J_9Dhqs6RsweM_vOwrZvx7q6Zy0/exec'
+);
+const { data } = await res.json();
+
+// console.log('🚀 ~ data:', data);
+---
+
+<div class="poepje relative z-50 min-h-svh md:min-h-screen">
+	<!-- <div class="sticky top-0 z-20 min-h-svh md:min-h-screen films">
+		<Image
+			src={bgImage}
+			width={bgImage.width / 2}
+			densities={[1.5, 2]}
+			class="absolute top-0 h-full w-full object-cover"
+			alt="Hero Image"
+		/>
+	</div> -->
+	<div class="relative top-0 z-50">
+		{data.map((i) => <FilmCard data={i} />)}
+	</div>
+</div>
+
+<style>
+	.poepje {
+		background-image: url('https://lab.pangrampangram.com/experiments/image-gallery/images/1.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center;
+		background-color: green;
+	}
+</style>

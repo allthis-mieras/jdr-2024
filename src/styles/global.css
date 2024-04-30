@@ -12,7 +12,7 @@
 		'DejaVu Sans Mono', monospace;
 	--font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
 		monospace;
-	--font-body: 'Inter', var(--font-system);
+	--font-body: 'Azeret', var(--font-system);
 	--font-brand: 'Sharpie', var(--font-system);
 
 	--base-size: 1rem;
@@ -89,6 +89,35 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Azeret Mono';
+	src:
+		url('../assets/fonts/Azeret-Mono.woff2') format('woff2'),
+		url('../assets/fonts/Azeret-Mono.woff') format('woff');
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Azeret';
+	src:
+		url('../assets/fonts/Azeret-Medium.woff2') format('woff2'),
+		url('../assets/fonts/Azeret-Medium.woff') format('woff');
+
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Azeret';
+	src:
+		url('../assets/fonts/Azeret-Bold.woff2') format('woff2'),
+		url('../assets/fonts/Azeret-Bold.woff') format('woff');
+
+	font-weight: 700;
+	font-style: normal;
+}
+
 body,
 html {
 	height: 100%;
@@ -96,7 +125,7 @@ html {
 	color: var(--text);
 	font-family: var(--font-body);
 	font-size: var(--text-base);
-	font-weight: 700;
+	font-weight: 500;
 	line-height: 1.5rem;
 	text-rendering: optimizeLegibility;
 	scroll-behavior: smooth;
@@ -125,6 +154,7 @@ main {
 
 .info p {
 	font-weight: 500;
+	line-height: 125%;
 }
 
 .info > p:nth-child(1) {
@@ -134,8 +164,8 @@ main {
 @media (min-width: 768px) {
 	:root {
 		--base-amount: calc(100vw / 16);
-		/* --base-size: calc(var(--base-amount) / 5); */
-		--base-size: font-size: clamp(12rem, 11.0769rem + 4.1026vw, 16rem);
+		--base-size: calc(var(--base-amount) / 5);
+		/* --base-size: font-size: clamp(12rem, 11.0769rem + 4.1026vw, 16rem); */
 	}
 }
 

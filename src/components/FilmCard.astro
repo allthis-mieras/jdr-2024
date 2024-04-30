@@ -1,0 +1,34 @@
+---
+type Props = {
+	data: {
+		title: string;
+		duration: number;
+		director: string;
+		production: string;
+		release: string;
+		role: string;
+	};
+};
+
+const { data } = Astro.props;
+---
+
+<div class="grid filmcard md:grid-cols-4">
+	<p>{data.title}</p>
+	<p>{data.director}</p>
+	<p>{data.duration}</p>
+	<p>{data.role}</p>
+	<p>{data.production}</p>
+	<p>{data.release}</p>
+</div>
+
+<style>
+	p {
+		color: var(--bg);
+	}
+
+	.filmcard {
+		padding: var(--space-xs);
+		border-top: 2px solid var(--text);
+	}
+</style>

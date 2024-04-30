@@ -1,14 +1,18 @@
 ---
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import ProjectList from "../components/ProjectList.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectList from '../components/ProjectList.astro';
+import FilmList from '../components/FilmList.astro';
 ---
 
 <BaseLayout title="Jeffrey de Roode">
-  <div id="content">
-    <Hero />
-    <ProjectList />
-    <div id="contact"></div>
-  </div>
+	<div id="content">
+		<Hero />
+		<ProjectList />
+
+		<!-- <div id="contact"></div> -->
+	</div>
+
+	<FilmList />
 </BaseLayout>

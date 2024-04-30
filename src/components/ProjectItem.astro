@@ -16,13 +16,13 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 ---
 
 <div class="flex relative flex-col project__item">
-	<div class="flex absolute top-0 left-0 w-full z-20 justify-between meta">
+	<div class="flex absolute top-0 left-0 w-full z-20 justify-between text-xs font-medium meta">
 		<p class="">{entry.data.role}</p>
 		<p class="">{entry.data.release}</p>
 	</div>
-	<div class="flex relative flex-col w-full h-full cursor-pointer preview">
+	<div class="flex relative flex-col w-full h-full cursor-pointer preview z-10">
 		<div class="relative flex items-center justify-center my-4 grow">
-			<div class="flex flex-col gap-2 w-48 poster">
+			<div class="flex flex-col gap-2 w-3/12 poster">
 				<Carousel slug={slug}>
 					{
 						images.map((image: string, index: number) => (
@@ -41,7 +41,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 				</Carousel>
 				<h2 class="text-center">{entry.data.title}</h2>
 			</div>
-			<div class="marquee">
+			<div class="marquee z-0">
 				<div class="track">
 					<div class="content noselect py-vw-1-min@md">
 						{entry.data.title}
@@ -54,8 +54,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		</div>
 	</div>
 
-	<div class="bottom more">
-		<div class="flex justify-between text-xs meta">
+	<div class="bottom more z-40">
+		<div class="flex justify-between text-xs font-medium meta">
 			<div class="flex gap-2">
 				<p class="">{entry.data.duration} mins</p>
 				<p class="">{entry.data.director}</p>
@@ -110,7 +110,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	}
 
 	h2 {
-		font-family: var(--font-mono);
+		font-family: var(--font-body);
+		font-weight: 600;
 		font-optical-sizing: auto;
 		letter-spacing: -0.0325rem;
 	}
