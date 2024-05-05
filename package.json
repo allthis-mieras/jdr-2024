@@ -17,6 +17,7 @@
     "postcss-value-parser": "^4.2.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "scramble-text": "^0.0.9",
+    "shiki": "^1.4.0",
     "swiper": "^11.0.5",
     "tailwindcss": "^3.3.5",
     "tailwindcss-fluid-type": "^2.0.3"
