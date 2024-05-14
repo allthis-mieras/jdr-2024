@@ -22,7 +22,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	</div>
 	<div class="flex relative flex-col w-full h-full cursor-pointer preview z-10">
 		<div class="relative flex items-center justify-center my-4 grow">
-			<div class="flex flex-col gap-2 w-3/12 poster">
+			<div class="flex flex-col gap-4 w-3/12 poster">
 				<Carousel slug={slug}>
 					{
 						images.map((image: string, index: number) => (
@@ -66,7 +66,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 			<div class="flex info">
 				<Content />
 			</div>
-			<div class="flex gap-2 links">
+			<div class="flex gap-4 links">
 				<a href="#" class="grow close">close</a>
 				<a href="#" class="grow">trailer</a>
 			</div>
