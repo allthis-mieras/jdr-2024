@@ -1,7 +1,7 @@
 /* Global variables */
 :root {
 	/* Colors */
-	--clr-brand: rgb(255, 250, 92);
+	--clr-brand: rgb(255, 245, 0);
 	--clr-black: rgb(0, 0, 0);
 	--clr-white: rgb(255, 255, 255);
 	--bg: var(--clr-white);
