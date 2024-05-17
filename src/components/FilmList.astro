@@ -11,7 +11,7 @@ const { data } = await res.json();
 // console.log('🚀 ~ data:', data);
 ---
 
-<div class="poepje relative z-50 min-h-svh md:min-h-screen">
+<div class="filmlist relative z-50 min-h-svh md:min-h-screen">
 	<!-- <div class="sticky top-0 z-20 min-h-svh md:min-h-screen films">
 		<Image
 			src={bgImage}
@@ -27,6 +27,10 @@ const { data } = await res.json();
 </div>
 
 <style>
+	.filmlist {
+		color: var(--text);
+		background: var(--bg);
+	}
 	.poepje {
 		background-image: url('https://lab.pangrampangram.com/experiments/image-gallery/images/1.jpg');
 		background-repeat: no-repeat;

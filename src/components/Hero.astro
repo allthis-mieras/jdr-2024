@@ -4,9 +4,9 @@ import { Image } from 'astro:assets';
 import hero from '../assets/jdr-cover-doel-01.jpg';
 ---
 
-<header class="sticky top-0 z-20 flex flex-col min-h-svh md:min-h-screen md:grid md:grid-cols-2">
+<header class="sticky top-0 z-20 flex flex-col min-h-screen md:h-svh md:grid md:grid-cols-2">
 	<div
-		class="relative flex items-center justify-center h-full bg-center bg-cover grow visual npmmd:h-screen"
+		class="relative flex items-center justify-center h-full bg-center bg-cover grow visual md:h-screen"
 	>
 		<Image
 			src={hero}
@@ -35,7 +35,7 @@ import hero from '../assets/jdr-cover-doel-01.jpg';
 		/* background: red; */
 		color: var(--clr-black);
 		gap: var(--gapborder);
-		border-bottom: var(--gapborder) solid var(--text);
+		/* border-bottom: var(--gapborder) solid var(--text); */
 		min-height: -webkit-fill-available;
 	}
 
