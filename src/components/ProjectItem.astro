@@ -22,7 +22,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	</div>
 	<div class="flex relative flex-col w-full h-full cursor-pointer preview z-10">
 		<div class="relative flex items-center justify-center my-4 grow">
-			<div class="flex flex-col gap-4 w-3/12 poster">
+			<div class="flex flex-col gap-4 md:w-4/12 w-4/5 poster">
 				<Carousel slug={slug}>
 					{
 						images.map((image: string, index: number) => (
