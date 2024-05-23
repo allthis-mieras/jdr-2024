@@ -2,8 +2,9 @@
 /** Main menu items - Verplaatsen naar const */
 const textLinks: { label: string; href: string }[] = [
 	// { label: 'IG', href: '#content' },
-	{ label: 'E-mail', href: 'mailto:hello@jeffreyderoode.nl' },
-	{ label: 'Call', href: '#contact' },
+	// { label: 'E-mail', href: 'mailto:hello@jeffreyderoode.nl' },
+	// { label: 'Call', href: '#contact' },
+	{ label: 'Contact', href: '#contact' },
 ];
 ---
 
@@ -57,6 +58,36 @@ const textLinks: { label: string; href: string }[] = [
 		transform: translateY(0); /* Toont de header */
 		transition: transform 0.3s ease;
 	}
+
+	@keyframes pulse {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	#date {
+		position: relative;
+		padding-left: 0.875rem; /* Voeg wat padding toe om ruimte te maken voor het lampje */
+	}
+
+	#date::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 0.5rem;
+		height: 0.5rem;
+		background-color: red;
+		border-radius: 50%;
+		animation: pulse 1s infinite;
+	}
 </style>
 
 <script>
@@ -99,25 +130,29 @@ const textLinks: { label: string; href: string }[] = [
 
 		lastScrollTop = st;
 	}
-	// Function to update the date and time
-	function updateDateTime() {
-		const dateElement = document.getElementById('date');
-		const currentDate = new Date();
-		const year = currentDate.getFullYear();
-		const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-		const day = String(currentDate.getDate()).padStart(2, '0');
-		const hours = String(currentDate.getHours()).padStart(2, '0');
-		const minutes = String(currentDate.getMinutes()).padStart(2, '0');
-		const seconds = String(currentDate.getSeconds()).padStart(2, '0');
-		const milliseconds = String(currentDate.getMilliseconds()).padStart(3, '0');
-		//const dateTime = `${year}.${month}.${day} ${hours}:${minutes}:${seconds}.${milliseconds}`;
-		const dateTime = `${hours}:${minutes}:${seconds}.${milliseconds}`;
-		dateElement.textContent = `${dateTime}`;
 
-		// Update the date and time every millisecond
-		setTimeout(updateDateTime, 1);
+	// Function to format the elapsed time
+	function formatElapsedTime(milliseconds) {
+		const hours = String(Math.floor((milliseconds / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+		const minutes = String(Math.floor((milliseconds / (1000 * 60)) % 60)).padStart(2, '0');
+		const seconds = String(Math.floor((milliseconds / 1000) % 60)).padStart(2, '0');
+		const ms = String(milliseconds % 1000).padStart(3, '0');
+		return `${hours}:${minutes}:${seconds}.${ms}`;
 	}
 
-	// Call the updateDateTime function to start updating the date and time
-	updateDateTime();
+	// Function to update the elapsed time
+	function updateElapsedTime(startTime) {
+		const dateElement = document.getElementById('date');
+		const currentTime = new Date().getTime();
+		const elapsedTime = currentTime - startTime;
+		const formattedTime = formatElapsedTime(elapsedTime);
+		dateElement.textContent = `${formattedTime}`;
+
+		// Update the elapsed time every millisecond
+		setTimeout(() => updateElapsedTime(startTime), 1);
+	}
+
+	// Call the updateElapsedTime function to start updating the elapsed time
+	const startTime = new Date().getTime();
+	updateElapsedTime(startTime);
 </script>

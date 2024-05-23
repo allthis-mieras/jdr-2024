@@ -10,7 +10,7 @@ const { data } = await res.json();
 ---
 
 <div class="filmlist relative z-50">
-	<h2 class="p-2 pt-vw-80-min@md-max@2xl mb-2 text-8xl">Filmography</h2>
+	<h2 class="pt-8 pb-2 text-8xl">Filmography</h2>
 	<!-- <div class="sticky top-0 z-20 min-h-svh md:min-h-screen films">
 		<Image
 			src={bgImage}
@@ -24,6 +24,8 @@ const { data } = await res.json();
 		{data.map((i) => <FilmCard data={i} />)}
 	</div>
 </div>
+
+<div id="contact" class="h-full"></div>
 
 <style>
 	h2 {
