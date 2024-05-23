@@ -13,13 +13,13 @@ type Props = {
 const { data } = Astro.props;
 ---
 
-<div class="grid filmcard grid-cols-2 md:grid-cols-4">
-	<p>{data.title}</p>
-	<p>{data.director}</p>
-	<p>{data.duration}</p>
-	<p>{data.role}</p>
-	<p>{data.production}</p>
-	<p>{data.release}</p>
+<div class="grid filmcard md:grid-cols-6 grid-cols-2">
+	<h3 class="text-xl/tight md:col-span-2">{data.title}</h3>
+	<p class="text-sm md:order-3">{data.duration} mins</p>
+	<p class="text-sm md:order-5 md:col-span-2">{data.director}</p>
+	<p class="text-sm md:col-span-2">{data.role}</p>
+	<p class="text-sm md:order-4">{data.release}</p>
+	<p class="text-sm md:col-span-2 md:order-last">{data.production}</p>
 </div>
 
 <style>
