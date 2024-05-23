@@ -11,15 +11,20 @@ type Props = {
 };
 
 const { data } = Astro.props;
+
+import { fade } from 'astro:transitions';
 ---
 
-<div class="grid filmcard md:grid-cols-6 grid-cols-2">
+<div
+	transition:animate={fade({ duration: '0.4s' })}
+	class="grid filmcard md:grid-cols-6 grid-cols-2"
+>
 	<h3 class="text-xl/tight md:col-span-2">{data.title}</h3>
-	<p class="text-sm md:order-3">{data.duration} mins</p>
-	<p class="text-sm md:order-5 md:col-span-2">{data.director}</p>
-	<p class="text-sm md:col-span-2">{data.role}</p>
-	<p class="text-sm md:order-4">{data.release}</p>
-	<p class="text-sm md:col-span-2 md:order-last">{data.production}</p>
+	<p class="text-xs md:order-3">{data.duration} mins</p>
+	<p class="text-xs md:order-5 md:col-span-2">{data.director}</p>
+	<p class="text-xs md:col-span-2">{data.role}</p>
+	<p class="text-xs md:order-4">{data.release}</p>
+	<p class="text-xs md:col-span-2 md:order-last">{data.production}</p>
 </div>
 
 <style>

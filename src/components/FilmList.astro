@@ -9,8 +9,8 @@ const { data } = await res.json();
 // console.log('🚀 ~ data:', data);
 ---
 
-<div class="filmlist relative z-50 min-h-svh md:min-h-screen">
-	<h1 class="p-2 pt-vw-52-max@xl text-7xl">Filmography</h1>
+<div class="filmlist relative z-50">
+	<h2 class="p-2 pt-vw-52-max@xl mb-2 text-8xl">Filmography</h2>
 	<!-- <div class="sticky top-0 z-20 min-h-svh md:min-h-screen films">
 		<Image
 			src={bgImage}
@@ -26,6 +26,9 @@ const { data } = await res.json();
 </div>
 
 <style>
+	h2 {
+		font-family: var(--font-brand);
+	}
 	.filmlist {
 		color: var(--text);
 		background: var(--bg);
