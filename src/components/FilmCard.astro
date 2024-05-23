@@ -17,7 +17,7 @@ import { fade } from 'astro:transitions';
 
 <div
 	transition:animate={fade({ duration: '0.4s' })}
-	class="grid filmcard md:grid-cols-6 grid-cols-2"
+	class="grid filmcard md:grid-cols-6 gap-x-4 grid-cols-2"
 >
 	<h3 class="text-xl/tight md:col-span-2">{data.title}</h3>
 	<p class="text-xs md:order-3">{data.duration} mins</p>

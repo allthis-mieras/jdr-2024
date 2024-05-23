@@ -10,7 +10,7 @@ const { data } = await res.json();
 ---
 
 <div class="filmlist relative z-50">
-	<h2 class="p-2 pt-vw-52-max@xl mb-2 text-8xl">Filmography</h2>
+	<h2 class="p-2 pt-vw-80-min@md-max@2xl mb-2 text-8xl">Filmography</h2>
 	<!-- <div class="sticky top-0 z-20 min-h-svh md:min-h-screen films">
 		<Image
 			src={bgImage}
@@ -28,17 +28,11 @@ const { data } = await res.json();
 <style>
 	h2 {
 		font-family: var(--font-brand);
+		text-transform: uppercase;
 	}
 	.filmlist {
+		border-top: 2px var(--text) solid;
 		color: var(--text);
 		background: var(--bg);
-	}
-	.poepje {
-		background-image: url('https://lab.pangrampangram.com/experiments/image-gallery/images/1.jpg');
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-		background-position: center;
-		background-color: green;
 	}
 </style>

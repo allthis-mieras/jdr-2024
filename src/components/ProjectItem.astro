@@ -22,7 +22,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	</div>
 	<div class="flex relative flex-col w-full h-full cursor-pointer preview z-10">
 		<div class="relative flex items-center justify-center my-4 grow">
-			<div class="flex flex-col gap-4 md:w-4/12 w-4/5 poster">
+			<div class="flex flex-col gap-4 md:w-4/12 w-3/6 poster">
 				<Carousel slug={slug}>
 					{
 						images.map((image: string, index: number) => (
@@ -141,8 +141,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	.marquee {
 		color: white;
 		font-family: var(--font-brand);
-		font-size: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
-		height: clamp(12rem, 11.3455rem + 2.9091vw, 16rem);
+		font-size: clamp(14rem, 13.5385rem + 2.0513vw, 16rem);
+		height: clamp(14rem, 13.5385rem + 2.0513vw, 16rem);
 		line-height: 120%;
 		position: absolute;
 		transform: translateY(-50%);
