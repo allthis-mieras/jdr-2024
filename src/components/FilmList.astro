@@ -11,10 +11,12 @@ const { data } = await res.json();
 
 <div class="filmlist relative z-10">
 	<!-- <h2 class="pt pt-vw-96-max@2xl pb-2 text-8xl">Filmography</h2> -->
-	<div class="marquee overflow-hidden">
-		<div class="track">
-			<div class="content noselect py-vw-1-min@md">
-				<h2 class="pt-5vw pt-vw-5">Filmography Filmography Filmography Filmography</h2>
+	<div class="heading">
+		<div class="marquee overflow-hidden">
+			<div class="track">
+				<div class="content noselect">
+					<h2>Filmography Filmography Filmography Filmography</h2>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -46,6 +48,14 @@ const { data } = await res.json();
 		position: relative;
 		/* overflow: hidden; */
 	}
+	.heading {
+		position: sticky;
+		top: 35vh;
+		overflow: hidden;
+		padding: 10vh 0;
+		/* transform: translateY(-25%); */
+		width: 100%;
+	}
 
 	.marquee {
 		color: var(--clr-brand);
@@ -53,11 +63,8 @@ const { data } = await res.json();
 		font-size: clamp(14rem, 13.5385rem + 2.0513vw, 16rem);
 		height: clamp(14rem, 13.5385rem + 2.0513vw, 16rem);
 		line-height: 120%;
-		position: sticky;
-		top: 20vw;
 
-		/* transform: scale(0.9); */
-		transform: rotate(-6deg);
+		transform: scale(1.2) rotate(-6deg);
 		/* opacity: 0; */
 		transition: all 0.3s ease-in-out 0.125s;
 		/* visibility: hidden; */
