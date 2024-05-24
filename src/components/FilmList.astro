@@ -9,17 +9,8 @@ const { data } = await res.json();
 // console.log('🚀 ~ data:', data);
 ---
 
-<div class="filmlist relative z-10">
-	<!-- <h2 class="pt pt-vw-96-max@2xl pb-2 text-8xl">Filmography</h2> -->
-	<div class="heading">
-		<div class="marquee overflow-hidden">
-			<div class="track">
-				<div class="content noselect">
-					<h2>Filmography Filmography Filmography Filmography</h2>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="filmlist relative z-50">
+	<h2 class="pt pt-vw-96-max@2xl pb-2 text-8xl">Filmography</h2>
 	<!-- <div class="sticky top-0 z-20 min-h-svh md:min-h-screen films">
 		<Image
 			src={bgImage}
@@ -45,47 +36,5 @@ const { data } = await res.json();
 		border-top: 2px var(--text) solid;
 		color: var(--text);
 		background: var(--bg);
-		position: relative;
-		/* overflow: hidden; */
-	}
-	.heading {
-		position: sticky;
-		top: 35vh;
-		overflow: hidden;
-		padding: 10vh 0;
-		/* transform: translateY(-25%); */
-		width: 100%;
-	}
-
-	.marquee {
-		color: var(--clr-brand);
-		font-family: var(--font-brand);
-		font-size: clamp(14rem, 13.5385rem + 2.0513vw, 16rem);
-		height: clamp(14rem, 13.5385rem + 2.0513vw, 16rem);
-		line-height: 120%;
-
-		transform: scale(1.2) rotate(-6deg);
-		/* opacity: 0; */
-		transition: all 0.3s ease-in-out 0.125s;
-		/* visibility: hidden; */
-		max-width: 100%;
-		width: 100%;
-		z-index: 1;
-	}
-
-	.track {
-		position: absolute;
-		white-space: nowrap;
-		will-change: transform;
-		animation: marquee 32s linear infinite;
-	}
-
-	@keyframes marquee {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(-50%);
-		}
 	}
 </style>
