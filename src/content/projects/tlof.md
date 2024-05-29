@@ -1,7 +1,7 @@
 ---
 title: The Life of Fathers
 duration: 33
-director: Marwan Magroun
+director: Rien Bexkens
 production: Jeffrey de Roode & Marwan Magroun
 release: 2024
 role: Producer
