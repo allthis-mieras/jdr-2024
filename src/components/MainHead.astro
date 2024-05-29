@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 
+import { SEO } from 'astro-seo';
+
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
@@ -17,6 +19,32 @@ const {
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
+
+<SEO
+	description={description}
+	openGraph={{
+		basic: {
+			title:
+				'Jeffrey de Roode is a Rotterdam based freelance producer and project manager specialized in film, documentaries and other creative concepts.',
+			type: 'Website',
+			image: '../assets/images/jdr-cover.jpg',
+		},
+	}}
+	extend={{
+		// extending the default link tags
+		link: [{ rel: 'icon', href: '/favicon.ico' }],
+		// extending the default meta tags
+		meta: [
+			{
+				name: 'twitter:image',
+				content:
+					'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
+			},
+			{ name: 'twitter:title', content: 'Tinker Tailor Soldier Spy' },
+			{ name: 'twitter:description', content: 'Agent' },
+		],
+	}}
+/>
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />

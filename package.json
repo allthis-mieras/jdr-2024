@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.8.7",
+    "astro-seo": "^0.8.3",
     "autoprefixer": "^10.4.19",
     "gsap": "^3.12.5",
     "postcss-value-parser": "^4.2.0",
