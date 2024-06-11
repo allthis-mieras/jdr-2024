@@ -10,8 +10,8 @@ import hero from '../assets/jdr-cover-01a.jpg';
 	>
 		<Image
 			src={hero}
-			widths={[240, 540, 720, 960, 1080, 1920]}
-			sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1080px) 720px, (max-width: 1440px) 960px, (max-width: 1920px) 1080px, 1920px`}
+			widths={[240, 540, 720, hero.width]}
+			sizes={`(max-width: 360px) 720px, (max-width: 720px) 960px, (max-width: 1600px) 1920px, ${hero.width}px`}
 			alt="Jeffrey de Roode"
 			class="top-0 h-full w-full object-cover"
 		/>
