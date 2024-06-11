@@ -8,6 +8,7 @@ export default {
 		},
 		lineHeight: {
 			tight: '1',
+			tighter: '80%',
 		},
 	},
 	plugins: [
