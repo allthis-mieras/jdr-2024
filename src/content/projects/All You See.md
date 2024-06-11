@@ -8,7 +8,7 @@ role: Post Production Manager
 type: Documentary
 description: |
   What if from one day to the next you're not seen anymore, but you are being stared at?
-publishDate: 2023-11-29 16:03:21
+publishDate: 2023-12-01 16:03:21
 imgs:
   - /assets/images/project-all-you-see-01.jpg
   - /assets/images/project-all-you-see-01.jpg

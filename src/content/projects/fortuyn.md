@@ -1,5 +1,5 @@
 ---
-title: Fortuyn Un Dutch
+title: Fortuyn; Un Dutch
 duration: 640
 director: Menna Laura Meijer
 production: mint film office & KRO-NCRV
@@ -9,7 +9,7 @@ type: Documentary
 description: |
 
 Fortuyn: Un Dutch tells the story of Dutch politician Pim Fortuyn from a bicultural perspective. Both in archival footage and interviews, we shift the narrative of Fortuyn by taking the viewpoint of people with a bicultural background as our starting point.
-publishDate: 2023-11-29 16:03:21
+publishDate: 2024-05-10 00:00:00
 imgs:
   - /assets/images/project-fortuyn.png
   - /assets/images/project-fortuyn.png
