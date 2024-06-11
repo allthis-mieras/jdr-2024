@@ -10,16 +10,16 @@ const textLinks: { label: string; href: string }[] = [
 
 <nav class="fixed z-50 grid w-full grid-cols-2 outer overflow-hidden nav">
 	<div class="left">
-		<h1 class="">
-			<a href="#" class="js-anchor-link">Jeffrey de Roode</a>
+		<h1 class="" title="Jeffrey de Roode">
+			<a href="#" class="js-anchor-link py-4">Jeffrey de Roode</a>
 		</h1>
 	</div>
-	<div class="flex items-center justify-between right">
+	<div class="flex items-center justify-between align-middle right">
 		<div id="date" class="date">Time</div>
 		<div class="menu uppercase pl-vw-8">
 			{
 				textLinks.map((l) => (
-					<a class="" href={l.href}>
+					<a class="py-4" href={l.href}>
 						{l.label}
 					</a>
 				))
@@ -29,6 +29,11 @@ const textLinks: { label: string; href: string }[] = [
 </nav>
 
 <style>
+	/* debug stuff */
+	/* * * * {
+		outline: 1px solid rgba(45, 255, 25, 0.766);
+	} */
+
 	nav {
 		/* mix-blend-mode: exclusion; */
 		background: var(--bg);
