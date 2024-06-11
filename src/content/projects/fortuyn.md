@@ -1,5 +1,5 @@
 ---
-title: Fortuyn; Un Dutch
+title: 'Fortuyn: Un Dutch'
 duration: 640
 director: Menna Laura Meijer
 production: mint film office & KRO-NCRV
@@ -20,4 +20,4 @@ img_alts:
 
 Fortuyn: Un Dutch tells the story of Dutch politician Pim Fortuyn from a bicultural perspective. Both in archival footage and interviews, we shift the narrative of Fortuyn by taking the viewpoint of people with a bicultural background as our starting point.
 
-How has Fortuyn's right-wing turn shaped lives in the multicultural society he declared bankrupt? What political and societal events influenced the Islamophobia resurgence he initiated? This series revisits history; our memory depends on who tells the story, through his music and memories. It's a tale of friendship, self-discovery, and hip-hop's power, set in vibrant Rotterdam-West.
+How has Fortuyn's right-wing turn shaped lives in the multicultural society he declared bankrupt? What political and societal events influenced the Islamophobia resurgence he initiated? This series revisits history; our memory depends on who tells the story.
