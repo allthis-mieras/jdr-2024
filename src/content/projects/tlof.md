@@ -10,9 +10,9 @@ description: |
   While growing up in the absence of his father for most of his youth, photographer Marwan Magroun goes in search for answers and stories regarding fatherhood. In the trans-medial project The Life of Fathers, photographer Marwan Magroun captures the stories of fathers that struggle with stigma's and prejudices.
 publishDate: 2023-06-01 00:00:00
 imgs:
-  - /assets/images/tlof-01.jpg
-  - /assets/images/tlof-02.jpg
-  - /assets/images/tlof-03.jpg
+  - /assets/images/project-tlof-01.png
+  - /assets/images/project-tlof-02.png
+  - /assets/images/project-tlof-03.png
 img_alts:
   - The Life of Fathers
   - The Life of Fathers

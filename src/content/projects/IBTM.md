@@ -10,7 +10,7 @@ description: |
   Joined by his father Tony, filmmaker Olivier Garcia travels to the US to reunite with his half-brother Erik, who is just released from jail.
 publishDate: 2023-11-01 00:00:00
 imgs:
-  - /assets/images/project-ibtm.jpg
+  - /assets/images/project-ibtm.png
 img_alts:
   - In Between These Mountains
 ---
