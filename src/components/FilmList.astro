@@ -20,14 +20,14 @@ const { data } = await res.json();
 			alt="Hero Image"
 		/>
 	</div> -->
-	<div class="relative top-0 z-50">
+	<div class="relative filmwrap top-0 z-50">
 		{data.map((i) => <FilmCard data={i} />)}
 	</div>
 </div>
 
 <div id="contact" class="h-full"></div>
 
-<style>
+<style is:global>
 	h2 {
 		font-family: var(--font-brand);
 		text-transform: uppercase;
@@ -37,4 +37,27 @@ const { data } = await res.json();
 		color: var(--text);
 		background: var(--bg);
 	}
+	.box {
+		transform: translateY(5rem);
+	}
 </style>
+
+<script>
+	import { animate, stagger, inView } from 'motion';
+
+	inView(
+		'.filmwrap',
+		(info) => {
+			animate(
+				'.box',
+				{ transform: ['translateY(0)'] },
+				{
+					delay: stagger(0.1),
+					duration: 0.5,
+					easing: [0.22, 0.03, 0.26, 1],
+				}
+			);
+		},
+		{ margin: '50% 0px 0px 0px' }
+	);
+</script>

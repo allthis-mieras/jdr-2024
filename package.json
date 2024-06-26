@@ -15,10 +15,12 @@
     "astro-seo": "^0.8.3",
     "autoprefixer": "^10.4.19",
     "gsap": "^3.12.5",
+    "motion": "^10.18.0",
     "postcss-value-parser": "^4.2.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "scramble-text": "^0.0.9",
     "shiki": "^1.4.0",
+    "solid-js": "^1.8.17",
     "swiper": "^11.0.5",
     "tailwindcss": "^3.4.3",
     "tailwindcss-fluid-type": "^2.0.3"
