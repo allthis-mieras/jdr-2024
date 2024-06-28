@@ -1,6 +1,7 @@
 ---
 const currentYear = new Date().getFullYear();
 import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import hero from '../assets/jdr-cover-01a.jpg';
 ---
 
@@ -14,6 +15,7 @@ import hero from '../assets/jdr-cover-01a.jpg';
 			sizes={`(max-width: 360px) 720px, (max-width: 720px) 960px, (max-width: 1600px) 1920px, ${hero.width}px`}
 			alt="Jeffrey de Roode"
 			class="top-0 h-full w-full object-cover"
+			loading="lazy"
 		/>
 	</div>
 
