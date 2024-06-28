@@ -6,4 +6,8 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
 	integrations: [tailwind()],
 	site: 'https://jeffreyderoode.nl/',
+	output: 'server',
+	adapter: netlify({
+		imageCDN: false,
+	}),
 });
