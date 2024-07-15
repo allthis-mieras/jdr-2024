@@ -104,11 +104,6 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		--text: black;
 	}
 
-	.project__item:hover > .preview {
-		background: var(--clr-brand);
-		--text: black;
-	}
-
 	.project__item:hover .marquee {
 		visibility: visible;
 		opacity: 1;
@@ -127,6 +122,17 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		letter-spacing: -0.0325rem;
 		line-height: 112.5%;
 		text-transform: none;
+	}
+
+	a.preview {
+		border: var(--gapborder) solid var(--text);
+		padding: var(--space-xs) var(--space-lg);
+		color: var(--text);
+		text-align: center;
+		border-radius: 100vw;
+		align-self: start;
+		font-size: 0.875rem;
+		transition: all 0.2s linear;
 	}
 
 	.meta {
@@ -237,16 +243,6 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 	.close {
 		padding-left: var(--gapborder);
-	}
-	a.preview {
-		border: var(--gapborder) solid var(--text);
-		padding: var(--space-xs) var(--space-lg);
-		color: var(--text);
-		text-align: center;
-		border-radius: 100vw;
-		align-self: start;
-		font-size: 0.875rem;
-		transition: all 0.2s var(--easing-hover);
 	}
 
 	@media only screen and (max-width: 600px) {
