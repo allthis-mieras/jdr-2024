@@ -1,7 +1,7 @@
 ---
 title: 'Fortuyn: Un Dutch'
 duration: 640
-director: Menna Laura Meijer
+director: mint film office
 production: mint film office & KRO-NCRV
 release: 2025
 role: Line Producer
