@@ -42,9 +42,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 				<h2 class="text-center">{entry.data.title}</h2>
 				<div class="link-wrap flex justify-center align-middle self-center">
-					<div class="link-wrap flex justify-center align-middle self-center">
-						<a class="preview md:hidden toggle-info">more info</a>
-					</div>
+					<a class="button-info md:hidden">more info</a>
 				</div>
 			</div>
 			<div class="marquee z-0">
@@ -72,7 +70,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 			<div class="flex info">
 				<Content />
 			</div>
-			<div class="flex gap-4 links">
+			<div class="flex hidden md:block gap-4 links">
 				<a href="#" class="grow close">close</a>
 				<!-- <a href="#" class="grow">trailer</a> -->
 			</div>
@@ -115,7 +113,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		/* z-index: 15; */
 	}
 
-	h2 {
+	.project__item h2 {
 		font-family: var(--font-mono);
 		font-weight: 600;
 		font-optical-sizing: auto;
@@ -124,15 +122,14 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		text-transform: none;
 	}
 
-	a.preview {
+	.project__item a.button-info {
+		font-size: 0.675rem;
+		font-weight: bold;
+		min-width: 18ch;
+		text-align: center;
 		border: var(--gapborder) solid var(--text);
 		padding: var(--space-xs) var(--space-lg);
-		color: var(--text);
-		text-align: center;
 		border-radius: 100vw;
-		align-self: start;
-		font-size: 0.875rem;
-		transition: all 0.2s linear;
 	}
 
 	.meta {
@@ -244,6 +241,14 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	.close {
 		padding-left: var(--gapborder);
 	}
+	a.preview {
+		border: var(--gapborder) solid var(--text);
+		padding: var(--space-xs) var(--space-lg);
+		color: var(--text);
+		text-align: center;
+		border-radius: 100vw;
+		align-self: start;
+	}
 
 	@media only screen and (max-width: 600px) {
 		.grid__item {
@@ -253,29 +258,73 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 </style>
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
+		// Initialiseer de "more" secties als verborgen
 		document.querySelectorAll('.more').forEach(function (more) {
-			more.classList.add('hidecontent'); // Voeg de hidecontent class toe aan elk more element
+			more.classList.add('hidecontent');
 		});
 
-		var toggles = document.querySelectorAll('.toggle-info');
-		toggles.forEach(function (toggle) {
-			toggle.addEventListener('click', function (event) {
+		// Event listener voor project items op desktop
+		document.querySelectorAll('.project__item').forEach(function (item) {
+			item.addEventListener('click', function (event) {
+				// Controleer of de klik afkomstig is van een mobiel "more info" knop
+				if (event.target.classList.contains('button-info')) {
+					return;
+				}
+
+				if (window.innerWidth > 600) {
+					var more = item.querySelector('.more');
+					var isVisible = !more.classList.contains('hidecontent');
+
+					// Sluit alle andere "more" secties
+					document.querySelectorAll('.more').forEach(function (el) {
+						el.classList.add('hidecontent');
+					});
+
+					// Toggle de huidige sectie
+					if (!isVisible) {
+						more.classList.remove('hidecontent');
+					}
+				}
+			});
+		});
+
+		// Event listener voor "more info" knoppen op mobiel
+		document.querySelectorAll('.button-info').forEach(function (button) {
+			button.addEventListener('click', function (event) {
 				event.preventDefault();
-				var more = toggle.closest('.project__item').querySelector('.more');
+				var item = button.closest('.project__item');
+				var more = item.querySelector('.more');
 				var isVisible = !more.classList.contains('hidecontent');
 
-				// Sluit alle andere more elementen en reset knoppen
+				// Sluit alle andere "more" secties en reset knoppen
 				document.querySelectorAll('.more').forEach(function (el) {
 					el.classList.add('hidecontent');
 				});
-				document.querySelectorAll('.toggle-info').forEach(function (btn) {
+				document.querySelectorAll('.button-info').forEach(function (btn) {
 					btn.textContent = 'more info';
 				});
 
-				// Toggle de huidige
+				// Toggle de huidige sectie en wijzig de knoptekst
 				if (!isVisible) {
 					more.classList.remove('hidecontent');
-					toggle.textContent = 'close';
+					button.textContent = 'close';
+					item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			});
+		});
+
+		// Event listener voor "close" knoppen binnen de "more" secties
+		document.querySelectorAll('.close').forEach(function (close) {
+			close.addEventListener('click', function (event) {
+				event.preventDefault();
+				var more = close.closest('.more');
+				more.classList.add('hidecontent');
+
+				// Reset de "more info" knoptekst op mobiel
+				var item = close.closest('.project__item');
+				var button = item.querySelector('.button-info');
+				if (button) {
+					button.textContent = 'more info';
 				}
 			});
 		});
