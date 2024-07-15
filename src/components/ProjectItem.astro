@@ -23,24 +23,28 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	<div class="flex relative flex-col w-full h-full cursor-pointer preview z-10">
 		<div class="relative flex items-center justify-center my-4 grow">
 			<div class="flex flex-col gap-4 md:w-4/12 w-3/6 poster">
-				<Carousel slug={slug}>
-					{
-						images.map((image: string, index: number) => (
-							<div class="swiper-slide">
-								<Image
-									src={image}
-									alt={imageAlts[index]}
-									width="800"
-									height="450"
-									decoding="async"
-									loading="lazy"
-								/>
-							</div>
-						))
-					}
-				</Carousel>
-
-				<h2 class="text-center">{entry.data.title}</h2>
+				<div class="carousel order-2 md:order-1">
+					<Carousel slug={slug}>
+						{
+							images.map((image: string, index: number) => (
+								<div class="swiper-slide">
+									<Image
+										src={image}
+										alt={imageAlts[index]}
+										width="800"
+										height="450"
+										decoding="async"
+										loading="lazy"
+									/>
+								</div>
+							))
+						}
+					</Carousel>
+				</div>
+				<h2 class="text-center order-1 md:order-3">{entry.data.title}</h2>
+				<div class="button-wrap md:hidden flex order-3 md:order-3 justify-center">
+					<a class="button-info">more info</a>
+				</div>
 			</div>
 			<div class="marquee z-0">
 				<div class="track">
@@ -56,8 +60,6 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	</div>
 
 	<div class="bottom more z-40">
-		<a class="button-info md:hidden">more info</a>
-
 		<div class="flex justify-between text-xs font-medium meta">
 			<div class="flex gap-2">
 				<p class="">{entry.data.duration} mins</p>
@@ -127,14 +129,13 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		min-width: 18ch;
 		text-align: center;
 		border: var(--gapborder) solid var(--text);
-		padding: var(--space-xs) var(--space-lg);
+		padding: var(--space-xxs) var(--space-lg);
 		border-radius: 100vw;
-		position: absolute;
+		/* position: absolute; */
 		top: -4rem;
-		left: 50%;
-		transform: translateX(-50%);
+		/* left: 50%; */
+		/* transform: translateX(-50%); */
 		backdrop-filter: blur(1rem);
-		background: rgba(255, 255, 255, 0.2);
 	}
 
 	.meta {
