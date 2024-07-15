@@ -20,7 +20,7 @@ const { data } = await res.json();
 			alt="Hero Image"
 		/>
 	</div> -->
-	<div class="relative filmwrap top-0 z-50">
+	<div class="relative filmwrap overflow-hidden top-0 z-50">
 		{data.map((i) => <FilmCard data={i} />)}
 	</div>
 </div>
@@ -37,8 +37,12 @@ const { data } = await res.json();
 		color: var(--text);
 		background: var(--bg);
 	}
+
+	.filmwrap {
+		overflow: hidden;
+	}
 	.box {
-		transform: translateY(5rem);
+		transform: translateY(12rem);
 	}
 </style>
 
@@ -53,11 +57,11 @@ const { data } = await res.json();
 				{ transform: ['translateY(0)'] },
 				{
 					delay: stagger(0.125),
-					duration: 1,
+					duration: 2,
 					easing: [0.22, 0.03, 0.26, 1],
 				}
 			);
 		},
-		{ margin: '10% 0px 0px 0px' }
+		{ margin: '50% 0px 0px 0px' }
 	);
 </script>
