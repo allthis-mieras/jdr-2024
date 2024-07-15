@@ -39,7 +39,13 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 						))
 					}
 				</Carousel>
+
 				<h2 class="text-center">{entry.data.title}</h2>
+				<div class="link-wrap flex justify-center align-middle self-center">
+					<div class="link-wrap flex justify-center align-middle self-center">
+						<a class="preview md:hidden toggle-info">more info</a>
+					</div>
+				</div>
 			</div>
 			<div class="marquee z-0">
 				<div class="track">
@@ -227,6 +233,16 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	.close {
 		padding-left: var(--gapborder);
 	}
+	a.preview {
+		border: var(--gapborder) solid var(--text);
+		padding: var(--space-xs) var(--space-lg);
+		color: var(--text);
+		text-align: center;
+		border-radius: 100vw;
+		align-self: start;
+		font-size: 0.875rem;
+		transition: all 0.2s var(--easing-hover);
+	}
 
 	@media only screen and (max-width: 600px) {
 		.grid__item {
@@ -234,44 +250,31 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		}
 	}
 </style>
-
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
 		document.querySelectorAll('.more').forEach(function (more) {
 			more.classList.add('hidecontent'); // Voeg de hidecontent class toe aan elk more element
 		});
 
-		var previews = document.querySelectorAll('.preview');
-		previews.forEach(function (preview) {
-			preview.addEventListener('click', function () {
-				var more = preview.nextElementSibling;
+		var toggles = document.querySelectorAll('.toggle-info');
+		toggles.forEach(function (toggle) {
+			toggle.addEventListener('click', function (event) {
+				event.preventDefault();
+				var more = toggle.closest('.project__item').querySelector('.more');
+				var isVisible = !more.classList.contains('hidecontent');
 
-				// Sluit alle andere more elementen
+				// Sluit alle andere more elementen en reset knoppen
 				document.querySelectorAll('.more').forEach(function (el) {
-					if (el !== more) {
-						el.classList.add('hidecontent');
-					}
+					el.classList.add('hidecontent');
+				});
+				document.querySelectorAll('.toggle-info').forEach(function (btn) {
+					btn.textContent = 'more info';
 				});
 
 				// Toggle de huidige
-				more.classList.toggle('hidecontent');
-
-				// Voer een smooth scroll uit naar de bovenkant van het geklikte preview element
-				preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			});
-		});
-
-		// Voeg event listeners toe aan alle 'close' knoppen
-		document.querySelectorAll('.close').forEach(function (close) {
-			close.addEventListener('click', function (event) {
-				event.preventDefault();
-				var more = close.closest('.more');
-				more.classList.add('hidecontent');
-
-				// Optioneel: scroll naar de bovenkant van het preview element na het sluiten
-				var preview = more.previousElementSibling;
-				if (preview) {
-					preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				if (!isVisible) {
+					more.classList.remove('hidecontent');
+					toggle.textContent = 'close';
 				}
 			});
 		});
