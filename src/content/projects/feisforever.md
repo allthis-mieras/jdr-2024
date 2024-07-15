@@ -17,6 +17,6 @@ img_alts:
   - Feis
 ---
 
-On New Year's Eve 2019, 32-year-old Faisal Mssyeh, better known as the rapper Feis is shot. His death sends shockwaves through the neighborhood and the Dutch hip-hop scene. Feis Forever provides an intimate glimpse into the life of the artist, featuring conversations with friends, home videos, and interviews with Feis himself.
+On New Year's Eve 2019, 32-year-old Faisal Mssyeh, better known as the rapper Feis, is shot. His death sends shockwaves through the neighborhood and the Dutch hip-hop scene. Feis Forever provides an intimate glimpse into the life of the artist, featuring conversations with friends, home videos, and interviews with Feis himself.
 
 The documentary traces his transformation from a raw street rapper to a mature artist who exposed his inner struggle through poetic lyrics. The film illustrates how Feis' legacy and inspiration continue to live on, through his music and memories. A story of friendship, self-discovery, and the power of hip-hop, set against the vibrant backdrop of Rotterdam-West.
