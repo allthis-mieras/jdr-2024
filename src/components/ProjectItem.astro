@@ -41,9 +41,6 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 				</Carousel>
 
 				<h2 class="text-center">{entry.data.title}</h2>
-				<div class="link-wrap flex justify-center align-middle self-center">
-					<a class="button-info md:hidden">more info</a>
-				</div>
 			</div>
 			<div class="marquee z-0">
 				<div class="track">
@@ -59,6 +56,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 	</div>
 
 	<div class="bottom more z-40">
+		<a class="button-info md:hidden">more info</a>
+
 		<div class="flex justify-between text-xs font-medium meta">
 			<div class="flex gap-2">
 				<p class="">{entry.data.duration} mins</p>
@@ -67,7 +66,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 			<p class="">{entry.data.production}</p>
 		</div>
 		<div class="flex-col">
-			<div class="flex info">
+			<div class="flex info border-b-0 md:border-b-2">
 				<Content />
 			</div>
 			<div class="hidden md:flex gap-4 links">
@@ -130,6 +129,12 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		border: var(--gapborder) solid var(--text);
 		padding: var(--space-xs) var(--space-lg);
 		border-radius: 100vw;
+		position: absolute;
+		top: -4rem;
+		left: 50%;
+		transform: translateX(-50%);
+		backdrop-filter: blur(1rem);
+		background: rgba(255, 255, 255, 0.2);
 	}
 
 	.meta {
@@ -220,7 +225,8 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		line-height: 112.5%;
 		padding: var(--space-xs);
 		border-top: var(--gapborder) solid var(--text);
-		border-bottom: var(--gapborder) solid var(--text);
+		/* border-bottom: var(--gapborder) solid var(--text); */
+		border-bottom-color: var(--text);
 	}
 	.info p {
 		font-size: 0.875rem;
