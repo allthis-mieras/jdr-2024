@@ -116,7 +116,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 
 	.project__item h2 {
 		font-family: var(--font-mono);
-		font-weight: 600;
+		font-weight: bold;
 		font-optical-sizing: auto;
 		letter-spacing: -0.0325rem;
 		line-height: 112.5%;
@@ -263,6 +263,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		}
 	}
 </style>
+
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
 		// Initialiseer de "more" secties als verborgen
@@ -273,8 +274,11 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 		// Event listener voor project items op desktop
 		document.querySelectorAll('.project__item').forEach(function (item) {
 			item.addEventListener('click', function (event) {
-				// Controleer of de klik afkomstig is van een mobiel "more info" knop
-				if (event.target.classList.contains('button-info')) {
+				// Controleer of de klik afkomstig is van een mobiel "more info" knop of een close knop
+				if (
+					event.target.classList.contains('button-info') ||
+					event.target.classList.contains('close')
+				) {
 					return;
 				}
 
@@ -290,6 +294,7 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 					// Toggle de huidige sectie
 					if (!isVisible) {
 						more.classList.remove('hidecontent');
+						item.scrollIntoView({ behavior: 'smooth', block: 'start' });
 					}
 				}
 			});
