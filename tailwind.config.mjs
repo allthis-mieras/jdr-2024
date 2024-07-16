@@ -7,6 +7,7 @@ export default {
 			extrabold: '800',
 		},
 		lineHeight: {
+			spacious: '133%',
 			normal: '112.5%',
 			tight: '1',
 			tighter: '80%',
