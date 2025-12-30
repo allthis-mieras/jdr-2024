@@ -29,19 +29,20 @@ const { slug } = Astro.props;
 	// Import Swiper styles
 	import 'swiper/css';
 
-	const swipers = document.querySelectorAll('.swiper');
+	// Gebruik requestAnimationFrame om initialisatie uit te stellen en forced reflows te voorkomen
+	requestAnimationFrame(function () {
+		const swipers = document.querySelectorAll('.swiper');
 
-	swipers.forEach((s: any, index: number) => {
-		console.log('.' + s.dataset.slug);
+		swipers.forEach((s: any, index: number) => {
+			const swiperParams: SwiperOptions = {
+				slidesPerView: 1,
+				spaceBetween: 0,
+				autoplay: {
+					delay: 5000,
+				},
+			};
 
-		const swiperParams: SwiperOptions = {
-			slidesPerView: 1,
-			spaceBetween: 0,
-			autoplay: {
-				delay: 5000,
-			},
-		};
-
-		const swiper = new Swiper('.' + s.dataset.slug, swiperParams);
+			const swiper = new Swiper('.' + s.dataset.slug, swiperParams);
+		});
 	});
 </script>

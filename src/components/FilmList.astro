@@ -79,28 +79,33 @@ try {
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	// Animate film cards with stagger when they come into view
-	const cards = document.querySelectorAll('.filmcard');
+	// Wacht tot DOM volledig geladen is en gebruik requestAnimationFrame om forced reflows te voorkomen
+	document.addEventListener('DOMContentLoaded', function () {
+		requestAnimationFrame(function () {
+			// Animate film cards with stagger when they come into view
+			const cards = document.querySelectorAll('.filmcard');
 
-	if (cards.length > 0) {
-		gsap.fromTo(
-			cards,
-			{
-				y: 20,
-				opacity: 0,
-			},
-			{
-				y: 0,
-				opacity: 1,
-				duration: 0.8,
-				stagger: 0.1,
-				ease: 'power2.out',
-				scrollTrigger: {
-					trigger: '.filmwrap',
-					start: 'top 85%',
-					toggleActions: 'play none none none',
-				},
+			if (cards.length > 0) {
+				gsap.fromTo(
+					cards,
+					{
+						y: 20,
+						opacity: 0,
+					},
+					{
+						y: 0,
+						opacity: 1,
+						duration: 0.8,
+						stagger: 0.1,
+						ease: 'power2.out',
+						scrollTrigger: {
+							trigger: '.filmwrap',
+							start: 'top 85%',
+							toggleActions: 'play none none none',
+						},
+					}
+				);
 			}
-		);
-	}
+		});
+	});
 </script>

@@ -317,17 +317,25 @@ function getImageFromPath(imagePath: string): ImageMetadata | string {
 		});
 
 		// Event listener voor project items op desktop
+		// Cache window width om forced reflows te voorkomen
+		let windowWidth = window.innerWidth;
+		window.addEventListener(
+			'resize',
+			function () {
+				windowWidth = window.innerWidth;
+			},
+			{ passive: true }
+		);
+
 		document.querySelectorAll('.project__item').forEach(function (item) {
 			item.addEventListener('click', function (event) {
 				// Controleer of de klik afkomstig is van een mobiel "more info" knop of een close knop
-				if (
-					event.target.classList.contains('button-info') ||
-					event.target.classList.contains('close')
-				) {
+				const target = event.target as HTMLElement;
+				if (target.classList.contains('button-info') || target.classList.contains('close')) {
 					return;
 				}
 
-				if (window.innerWidth > 600) {
+				if (windowWidth > 600) {
 					var more = item.querySelector('.more');
 					var isVisible = !more.classList.contains('hidecontent');
 
@@ -339,7 +347,10 @@ function getImageFromPath(imagePath: string): ImageMetadata | string {
 					// Toggle de huidige sectie
 					if (!isVisible) {
 						more.classList.remove('hidecontent');
-						item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						// Gebruik requestAnimationFrame om reflow te batch-en
+						requestAnimationFrame(function () {
+							item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						});
 					}
 				}
 			});
@@ -365,7 +376,10 @@ function getImageFromPath(imagePath: string): ImageMetadata | string {
 				if (!isVisible) {
 					more.classList.remove('hidecontent');
 					button.textContent = 'close';
-					item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					// Gebruik requestAnimationFrame om reflow te batch-en
+					requestAnimationFrame(function () {
+						item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					});
 				}
 			});
 		});
