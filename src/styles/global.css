@@ -4,16 +4,18 @@
 :root {
 	/* Colors */
 	--clr-brand: rgb(255, 245, 0);
+	/* --clr-brand: #f25d00; */
 	--clr-black: rgb(0, 0, 0);
 	--clr-white: rgb(255, 255, 255);
 	--bg: var(--clr-white);
 	--text: var(--clr-black);
 
 	/* Fonts */
-	--font-system: 'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+	--font-system:
+		'Azeret Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
 		'DejaVu Sans Mono', monospace;
-	--font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-		monospace;
+	--font-mono:
+		ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 	--font-body: 'Azeret', var(--font-system);
 	--font-brand: 'Sharpie', var(--font-system);
 
@@ -51,11 +53,14 @@
 	/* --spacer-y-vw-full: calc(-1 * var(--spacer-margin-vw)); */
 
 	/* Shadows */
-	--shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
+	--shadow-sm:
+		0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
 		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
-	--shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
+	--shadow-md:
+		0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
 		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
-	--shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
+	--shadow-lg:
+		0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
 		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12);
 
 	/* Transitions */

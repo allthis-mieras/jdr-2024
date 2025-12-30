@@ -1,10 +1,26 @@
 ---
 import FilmCard from './FilmCard.astro';
 
-const res = await fetch(
-	'https://script.google.com/macros/s/AKfycbx5CGGJf5WdDbZuRT8JGhSqLdjneCaVGtegEfKZO9TzJ1_0pf3HvK_s4pNojJSrbQ6Z/exec'
-);
-const { data } = await res.json();
+let data = [];
+
+try {
+	const res = await fetch(
+		'https://script.google.com/macros/s/AKfycbxC2poXlqKExvGm9LJsG69Pf76-At2xpPuIfOfP_lG9bumOeQI9HS2aXd1xBWMnLPXt/exec',
+		{
+			cache: 'no-store', // Voorkom caching
+		}
+	);
+
+	if (res.ok) {
+		const json = await res.json();
+		data = json.data || [];
+	} else {
+		console.warn('FilmList: Failed to fetch data, status:', res.status);
+	}
+} catch (error) {
+	console.error('FilmList: Error fetching data:', error);
+	data = [];
+}
 
 // console.log('🚀 ~ data:', data);
 ---
@@ -21,48 +37,70 @@ const { data } = await res.json();
 		/>
 	</div> -->
 	<div class="relative filmwrap overflow-hidden top-0 z-50">
-		{data.map((i) => <FilmCard data={i} />)}
+		{
+			data && data.length > 0 ? (
+				data.map((i) => <FilmCard data={i} />)
+			) : (
+				<p class="p-4 text-sm">Filmography data wordt geladen...</p>
+			)
+		}
 	</div>
 </div>
 
 <div id="contact" class="h-full"></div>
 
 <style is:global>
-	h2 {
-		font-family: var(--font-brand);
-		text-transform: uppercase;
-	}
 	.filmlist {
 		border-top: 2px var(--text) solid;
-		color: var(--text);
-		background: var(--bg);
+		background: var(--bg) !important;
+		color: var(--text) !important;
+	}
+
+	.filmlist h2 {
+		font-family: var(--font-brand);
+		text-transform: uppercase;
+		color: var(--text) !important;
 	}
 
 	.filmwrap {
 		overflow: hidden;
+		background: var(--bg);
+		color: var(--text) !important;
 	}
-	.box {
-		transform: translateY(12rem);
-		opacity: 0;
+
+	.filmwrap p {
+		color: var(--text) !important;
 	}
 </style>
 
 <script>
-	import { animate, stagger, inView } from 'motion';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-	inView(
-		'.filmwrap',
-		(info) => {
-			animate(
-				'.box',
-				{ transform: ['translateY(0)'], opacity: ['1'] },
-				{
-					delay: stagger(0.125),
-					duration: 1,
-					easing: [0.22, 0.03, 0.26, 1],
-				}
-			);
-		},
-		{ margin: '50% 0px 0px 0px' }
-	);
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Animate film cards with stagger when they come into view
+	const cards = document.querySelectorAll('.filmcard');
+
+	if (cards.length > 0) {
+		gsap.fromTo(
+			cards,
+			{
+				y: 20,
+				opacity: 0,
+			},
+			{
+				y: 0,
+				opacity: 1,
+				duration: 0.8,
+				stagger: 0.1,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: '.filmwrap',
+					start: 'top 85%',
+					toggleActions: 'play none none none',
+				},
+			}
+		);
+	}
 </script>

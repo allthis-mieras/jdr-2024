@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { getEntry } from 'astro:content';
 import Carousel from '../components/Carousel.astro';
 
@@ -13,6 +14,28 @@ const entry = await getEntry('projects', slug);
 const { Content } = await entry.render();
 
 const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
+
+// Dynamisch importeren van alle images uit src/assets/images
+const imageModules = import.meta.glob('/src/assets/images/**/*.{jpg,jpeg,png,webp}', {
+	eager: true,
+});
+
+// Helper functie om image path te converteren naar geïmporteerde image
+function getImageFromPath(imagePath: string): ImageMetadata | string {
+	// Haal de filename uit het path (bijv. /assets/images/project-fortuyn.png -> project-fortuyn.png)
+	const filename = imagePath.split('/').pop() || '';
+
+	// Zoek de image in de geïmporteerde modules
+	for (const [path, module] of Object.entries(imageModules)) {
+		if (path.includes(filename)) {
+			return (module as { default: ImageMetadata }).default;
+		}
+	}
+
+	// Fallback naar originele path als image niet gevonden wordt
+	console.warn(`Image not found: ${imagePath}, using original path`);
+	return imagePath;
+}
 ---
 
 <div class="flex relative flex-col project__item">
@@ -26,18 +49,40 @@ const { imgs: images, img_alts: imageAlts, role, type, title } = entry.data;
 				<div class="carousel">
 					<Carousel slug={slug}>
 						{
-							images.map((image: string, index: number) => (
-								<div class="swiper-slide">
-									<Image
-										src={image}
-										alt={imageAlts[index]}
-										width="800"
-										height="450"
-										decoding="async"
-										loading="lazy"
-									/>
-								</div>
-							))
+							images.map((image: string, index: number) => {
+								const optimizedImage = getImageFromPath(image);
+								const isImported = typeof optimizedImage !== 'string';
+
+								return (
+									<div class="swiper-slide">
+										{isImported ? (
+											<Image
+												src={optimizedImage}
+												alt={imageAlts[index] || entry.data.title}
+												width={800}
+												height={450}
+												widths={[400, 600, 800, 1200, 1600]}
+												sizes="(max-width: 768px) 50vw, 33vw"
+												format="avif"
+												decoding="async"
+												loading="lazy"
+												class="w-full h-auto object-cover"
+											/>
+										) : (
+											<Image
+												src={optimizedImage}
+												alt={imageAlts[index] || entry.data.title}
+												width={800}
+												height={450}
+												inferSize
+												decoding="async"
+												loading="lazy"
+												class="w-full h-auto object-cover"
+											/>
+										)}
+									</div>
+								);
+							})
 						}
 					</Carousel>
 				</div>

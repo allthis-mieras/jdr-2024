@@ -16,8 +16,7 @@ import { fade } from 'astro:transitions';
 ---
 
 <div
-	transition:animate={fade({ duration: '0.4s' })}
-	class="grid box filmcard md:grid-cols-6 gap-x-4 grid-cols-2 items-baseline"
+	class="grid filmcard md:grid-cols-6 gap-x-4 grid-cols-2 items-baseline"
 >
 	<h3 class="text-xl/tight col-span-2 leading-normal">{data.title}</h3>
 	<p class="text-xs md:order-5 md:col-span-2">{data.director}</p>
@@ -29,12 +28,14 @@ import { fade } from 'astro:transitions';
 </div>
 
 <style>
-	p {
-		color: var(--text);
-	}
-
 	.filmcard {
 		padding: var(--space-xs);
 		border-top: 2px var(--text) solid;
+		color: var(--text);
+	}
+
+	.filmcard p,
+	.filmcard h3 {
+		color: var(--text);
 	}
 </style>

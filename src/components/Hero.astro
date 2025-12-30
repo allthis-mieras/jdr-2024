@@ -12,6 +12,7 @@ import hero from '../assets/2025-12-11_HIG_0497.jpg';
 			alt="Jeffrey de Roode"
 			widths={[240, 960, 1920]}
 			sizes="(max-width: 360px) 240px, (max-width: 720px) 960px, (max-width: 1600px) 1920px, 100vw"
+			format="avif"
 			class="w-full h-full max-h-full object-cover"
 		/>
 	</div>
@@ -19,7 +20,7 @@ import hero from '../assets/2025-12-11_HIG_0497.jpg';
 	<div class="flex items-center justify-center z-50 row-span-4 py-4 md:p-4 copy">
 		<div class="text-center flex flex-col gap-2 p-4 pb-12 md:p-vw-2
 		 md:gap-4">
-			<p class="uppercase intro text-7xl md:text-5xl lg:text-5xl text-balance leading-tighter">
+			<p class="uppercase intro text-7xl md:text-6xl lg:text-5xl text-balance leading-tighter">
 				I am a Rotterdam based producer of documentaries and I work on projects that contribute to
 				making this world a better place.
 			</p>
@@ -47,8 +48,10 @@ import hero from '../assets/2025-12-11_HIG_0497.jpg';
 
 	.intro {
 		font-family: var(--font-brand);
-		color: var(--clr-black);
 		font-weight: 100;
+
+		line-height: 100%;
+		color: var(--clr-black);
 	}
 
 	.intro .note {
